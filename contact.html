@@ -1,0 +1,378 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | AeroLift</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* Contact Specific Styles */
+        
+        .inner-hero {
+            padding: 8rem 0 4rem;
+            background-color: var(--primary-color);
+            color: #fff;
+            text-align: center;
+        }
+
+        /* 2. Contact Information Grid */
+        .contact-info-card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+        .contact-info-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary-color);
+        }
+        .contact-icon {
+            width: 70px; height: 70px;
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+        }
+
+        /* 3. Contact Form */
+        .contact-form-wrapper {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+        }
+        .form-control, .form-select {
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        .form-control:focus, .form-select:focus {
+            border-color: var(--secondary-color);
+            box-shadow: none;
+            background-color: var(--bg-color);
+        }
+
+        /* 5. Google Maps Simulated */
+        .map-container {
+            border-radius: 16px;
+            overflow: hidden;
+            height: 500px;
+            background-color: var(--surface-color);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .map-container img {
+            position: absolute;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 0.5;
+            filter: grayscale(1);
+        }
+        .map-marker {
+            position: relative;
+            z-index: 1;
+            color: var(--secondary-color);
+            font-size: 4rem;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            animation: bounce 2s infinite ease-in-out;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        /* 6. Social Icons Hover */
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--bg-color);
+            color: var(--primary-color);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+        }
+        [data-theme="dark"] .social-icon {
+            color: var(--text-color);
+        }
+        .social-icon:hover {
+            background: var(--secondary-color);
+            color: var(--primary-color);
+            transform: translateY(-5px) scale(1.1);
+            border-color: var(--secondary-color);
+            box-shadow: 0 10px 20px rgba(240, 200, 8, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="height: 40px;">
+                    <path d="M10,90 L90,90 L90,80 L60,80 L60,20 L80,20 L80,10 L20,10 L20,20 L40,20 L40,80 L10,80 Z" fill="var(--secondary-color)"/>
+                    <circle cx="50" cy="50" r="10" fill="var(--primary-color)"/>
+                </svg>
+                <span class="ms-2">AeroLift</span>
+            </a>
+            
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home 1</a></li>
+                    <li class="nav-item"><a class="nav-link" href="home-2.html">Home 2</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-3">
+                    <button class="theme-toggle-btn btn btn-link text-decoration-none p-0" aria-label="Toggle Theme"><i class="bi bi-moon-fill text-muted fs-5"></i></button>
+                    <button class="rtl-toggle-btn btn btn-link text-decoration-none text-muted fw-semibold p-0" aria-label="Toggle RTL">RTL</button>
+                    <a href="login.html" class="btn btn-outline">Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Offcanvas -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" style="background: var(--bg-color);">
+        <div class="offcanvas-header border-bottom border-secondary">
+            <h5 class="offcanvas-title fw-bold" style="color: var(--text-color);">Menu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" style="filter: invert(var(--bs-btn-close-white-filter, 0));"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home 1</a></li>
+                <li class="nav-item"><a class="nav-link" href="home-2.html">Home 2</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item mt-3"><a href="login.html" class="btn btn-primary w-100">Login</a></li>
+                <li class="nav-item mt-3 d-flex gap-2">
+                    <button class="theme-toggle-btn btn btn-outline w-50"><i class="bi bi-moon-fill"></i> Theme</button>
+                    <button class="rtl-toggle-btn btn btn-outline w-50">RTL</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 1. Hero Section -->
+    <section class="inner-hero reveal reveal-fade-up">
+        <div class="container">
+            <h1 class="display-3 fw-bold mb-2">Get in Touch</h1>
+            <p class="lead opacity-75">Global reach with local heavy lift expertise.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="section-padding" style="margin-top: -3rem;">
+        <div class="container position-relative z-1">
+            <div class="row g-5">
+                
+                <!-- 2. Contact Information -->
+                <div class="col-lg-4">
+                    <div class="d-flex flex-column gap-4">
+                        <div class="contact-info-card reveal reveal-scale stagger-1">
+                            <div class="contact-icon"><i class="bi bi-geo-alt-fill"></i></div>
+                            <h4 class="fw-bold">Global HQ</h4>
+                            <p class="text-muted mb-0">800 Industrial Parkway<br>Houston, TX 77011<br>United States</p>
+                        </div>
+                        <div class="contact-info-card reveal reveal-scale stagger-2">
+                            <div class="contact-icon"><i class="bi bi-telephone-fill"></i></div>
+                            <h4 class="fw-bold">Dispatch Center</h4>
+                            <p class="text-muted mb-0"><strong>24/7 Operations:</strong><br>+1 (800) 555-LIFT</p>
+                            <p class="text-muted mt-2 mb-0"><strong>Engineering:</strong><br>+1 (800) 555-PLAN</p>
+                        </div>
+                        <div class="contact-info-card reveal reveal-scale stagger-3">
+                            <div class="contact-icon"><i class="bi bi-envelope-fill"></i></div>
+                            <h4 class="fw-bold">Email Direct</h4>
+                            <p class="text-muted mb-0">quotes@aerolift.com<br>engineering@aerolift.com</p>
+                        </div>
+                        <div class="contact-info-card reveal reveal-scale stagger-4 py-4">
+                            <h5 class="fw-bold mb-3">Connect With Us</h5>
+                            <div class="d-flex justify-content-center gap-3">
+                                <a href="#" class="social-icon" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                                <a href="#" class="social-icon" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                                <a href="#" class="social-icon" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                                <a href="#" class="social-icon" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Contact Form -->
+                <div class="col-lg-8 reveal reveal-fade-left">
+                    <div class="contact-form-wrapper">
+                        <h2 class="fw-bold mb-4">Send a Message</h2>
+                        <form action="#" method="POST" class="needs-validation" novalidate>
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Your Name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control" placeholder="Email Address" required>
+                                </div>
+                                <div class="col-12">
+                                    <input type="text" class="form-control" placeholder="Subject / Project Name" required>
+                                </div>
+                                <div class="col-12">
+                                    <select class="form-select" required>
+                                        <option value="" selected disabled>Select Department...</option>
+                                        <option value="1">Crane Rental Sales</option>
+                                        <option value="2">Engineering & Lift Planning</option>
+                                        <option value="3">Heavy Haulage Logistics</option>
+                                        <option value="4">General Inquiry</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <textarea class="form-control" rows="6" placeholder="Message details..." required></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary btn-lg fw-bold px-5">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- 5. Google Maps Section -->
+    <section class="pb-5 bg-surface-color">
+        <div class="container reveal reveal-zoom">
+            <div class="map-container overflow-hidden rounded-4 shadow-lg border border-secondary border-opacity-25" style="height: 500px;">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110825.8078652615!2d-95.45266738981447!3d29.771239592476722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640b8b4488d8501%3A0xca0d02def365053b!2sHouston%2C%20TX!5e0!3m2!1sen!2sus!4v1718042456456!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+        <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 pe-lg-5">
+                    <a class="navbar-brand d-flex align-items-center mb-4 text-decoration-none" href="index.html">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="height: 40px;">
+                            <path d="M10,90 L90,90 L90,80 L60,80 L60,20 L80,20 L80,10 L20,10 L20,20 L40,20 L40,80 L10,80 Z" fill="var(--secondary-color)"/>
+                            <circle cx="50" cy="50" r="10" fill="var(--primary-color)"/>
+                        </svg>
+                        <span class="fs-4 fw-bold ms-2" style="color: var(--text-color);">AeroLift</span>
+                    </a>
+                    <p>Premium crane hire and heavy lift logistics solutions for enterprise infrastructure, industrial, and energy projects worldwide.</p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#" class="text-white fs-5"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="text-white fs-5"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="text-white fs-5"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5>Fleet</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="#">Mobile Cranes</a></li>
+                        <li><a href="#">Crawler Cranes</a></li>
+                        <li><a href="#">Tower Cranes</a></li>
+                        <li><a href="#">Rough Terrain</a></li>
+                        <li><a href="#">Heavy Haulage</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5>Newsletter</h5>
+                    <p>Subscribe for industry insights and fleet updates.</p>
+                    <form class="d-flex gap-2 mt-3">
+                        <input type="email" class="form-control" placeholder="Email address" required>
+                        <button class="btn btn-primary" type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row footer-bottom align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <small>&copy; 2026 AeroLift. All rights reserved.</small>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <small>
+                        <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Back to Top <i class="bi bi-arrow-up"></i></a>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script>
+        // Form Validation Bootstrap
+        (() => {
+            'use strict'
+            const forms = document.querySelectorAll('.needs-validation')
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
+    </script>
+</body>
+</html>
+
+
+
+
+
+

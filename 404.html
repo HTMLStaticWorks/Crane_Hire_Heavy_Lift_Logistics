@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Not Found | AeroLift</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .error-section {
+            padding: 15rem 0 10rem;
+            min-height: calc(100vh - 400px);
+            display: flex;
+            align-items: center;
+        }
+        .error-code {
+            font-size: 8rem;
+            font-weight: 800;
+            line-height: 1;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="height: 40px;">
+                    <path d="M10,90 L90,90 L90,80 L60,80 L60,20 L80,20 L80,10 L20,10 L20,20 L40,20 L40,80 L10,80 Z" fill="var(--secondary-color)"/>
+                    <circle cx="50" cy="50" r="10" fill="var(--primary-color)"/>
+                </svg>
+                <span class="ms-2">AeroLift</span>
+            </a>
+            
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home 1</a></li>
+                    <li class="nav-item"><a class="nav-link" href="home-2.html">Home 2</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-3">
+                    <button class="theme-toggle-btn btn btn-link text-decoration-none p-0" aria-label="Toggle Theme"><i class="bi bi-moon-fill text-muted fs-5"></i></button>
+                    <button class="rtl-toggle-btn btn btn-link text-decoration-none text-muted fw-semibold p-0" aria-label="Toggle RTL">RTL</button>
+                    <a href="login.html" class="btn btn-outline">Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Offcanvas -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" style="background: var(--bg-color);">
+        <div class="offcanvas-header border-bottom border-secondary">
+            <h5 class="offcanvas-title fw-bold" style="color: var(--text-color);">Menu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" style="filter: invert(var(--bs-btn-close-white-filter, 0));"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home 1</a></li>
+                <li class="nav-item"><a class="nav-link" href="home-2.html">Home 2</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item mt-3"><a href="login.html" class="btn btn-primary w-100">Login</a></li>
+                <li class="nav-item mt-3 d-flex gap-2">
+                    <button class="theme-toggle-btn btn btn-outline w-50"><i class="bi bi-moon-fill"></i> Theme</button>
+                    <button class="rtl-toggle-btn btn btn-outline w-50">RTL</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    </div>
+
+    <!-- 404 Section -->
+    <section class="error-section">
+        <div class="container text-center reveal reveal-fade-up">
+            <div class="error-code">404</div>
+            <h1 class="fw-bold mb-4">Page Not Found</h1>
+            <p class="text-muted fs-5 mb-5 mx-auto" style="max-width: 600px;">The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
+            <a href="index.html" class="btn btn-primary btn-lg">Return to Homepage</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 pe-lg-5">
+                    <a class="navbar-brand d-flex align-items-center mb-4 text-decoration-none" href="index.html">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="height: 40px;">
+                            <path d="M10,90 L90,90 L90,80 L60,80 L60,20 L80,20 L80,10 L20,10 L20,20 L40,20 L40,80 L10,80 Z" fill="var(--secondary-color)"/>
+                            <circle cx="50" cy="50" r="10" fill="var(--primary-color)"/>
+                        </svg>
+                        <span class="fs-4 fw-bold ms-2" style="color: var(--text-color);">AeroLift</span>
+                    </a>
+                    <p>Premium crane hire and heavy lift logistics solutions for enterprise infrastructure, industrial, and energy projects worldwide.</p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#" class="text-white fs-5"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="text-white fs-5"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="text-white fs-5"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5>Fleet</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="#">Mobile Cranes</a></li>
+                        <li><a href="#">Crawler Cranes</a></li>
+                        <li><a href="#">Tower Cranes</a></li>
+                        <li><a href="#">Rough Terrain</a></li>
+                        <li><a href="#">Heavy Haulage</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5>Newsletter</h5>
+                    <p>Subscribe for industry insights and fleet updates.</p>
+                    <form class="d-flex gap-2 mt-3">
+                        <input type="email" class="form-control" placeholder="Email address" required>
+                        <button class="btn btn-primary" type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row footer-bottom align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <small>&copy; 2026 AeroLift. All rights reserved.</small>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <small>
+                        <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Back to Top <i class="bi bi-arrow-up"></i></a>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,376 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Gallery | AeroLift</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* Gallery Specific Styles */
+
+        .inner-hero {
+            padding: 10rem 0 6rem;
+            background-image: linear-gradient(rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.9)), url('images/hero_bg_services.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #fff;
+            text-align: center;
+        }
+
+        /* Hover Zoom Masonry */
+        .gallery-grid {
+            column-count: 3;
+            column-gap: 1.5rem;
+        }
+
+        @media (max-width: 992px) {
+            .gallery-grid {
+                column-count: 2;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .gallery-grid {
+                column-count: 1;
+            }
+        }
+
+        .gallery-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 26, 26, 0.7);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay i {
+            color: var(--secondary-color);
+            font-size: 3rem;
+            transform: translateY(20px);
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay i {
+            transform: translateY(0);
+        }
+
+        /* Video Showcase */
+        .video-showcase {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-showcase img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            filter: brightness(0.6);
+        }
+
+        .play-button {
+            position: relative;
+            z-index: 1;
+            width: 100px;
+            height: 100px;
+            background: rgba(240, 200, 8, 0.9);
+            /* Safety Yellow */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: var(--primary-color);
+            font-size: 3rem;
+            padding-left: 10px;
+            /* Optical alignment */
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 0 15px rgba(240, 200, 8, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10,90 L90,90 L90,80 L60,80 L60,20 L80,20 L80,10 L20,10 L20,20 L40,20 L40,80 L10,80 Z"
+                        fill="var(--secondary-color)" />
+                    <circle cx="50" cy="50" r="10" fill="var(--primary-color)" />
+                </svg>
+                <span>AeroLift</span>
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home 1</a></li>
+                    <li class="nav-item"><a class="nav-link" href="home-2.html">Home 2</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-3">
+                    <button class="theme-toggle-btn" aria-label="Toggle Theme"><i class="bi bi-moon-fill"></i></button>
+                    <button class="rtl-toggle-btn" aria-label="Toggle RTL">RTL</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. Hero Section -->
+    <section class="inner-hero reveal reveal-fade-up">
+        <div class="container">
+            <span class="text-secondary-brand fw-bold text-uppercase tracking-wide mb-2 d-inline-block">Visual
+                Evidence</span>
+            <h1 class="display-3 fw-bold mb-3">Project Gallery</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center">
+                    <li class="breadcrumb-item"><a href="index.html" class="text-white-50 text-decoration-none">Home</a>
+                    </li>
+                    <li class="breadcrumb-item active text-white" aria-current="page">Gallery</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- 2. Construction Projects -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="mb-4 text-center reveal reveal-fade-up">
+                <h3 class="fw-bold border-bottom pb-3 d-inline-block">Civil Construction</h3>
+            </div>
+            <div class="gallery-grid reveal reveal-slide-up">
+                <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#lightboxModal">
+                    <img src="https://images.pexels.com/photos/18444921/pexels-photo-18444921.jpeg" alt="Bridge Lift">
+                    <div class="gallery-overlay"><i class="bi bi-zoom-in"></i></div>
+                </div>
+                <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#lightboxModal">
+                    <img src="https://images.pexels.com/photos/30547510/pexels-photo-30547510.jpeg" alt="Stadium Lift">
+                    <div class="gallery-overlay"><i class="bi bi-zoom-in"></i></div>
+                </div>
+                <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#lightboxModal">
+                    <img src="images/tower_crane_card.png" alt="High Rise">
+                    <div class="gallery-overlay"><i class="bi bi-zoom-in"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Industrial Projects -->
+    <section class="section-padding bg-surface-color">
+        <div class="container">
+            <div class="mb-4 text-center reveal reveal-fade-up">
+                <h3 class="fw-bold border-bottom pb-3 d-inline-block">Industrial Turnarounds</h3>
+            </div>
+            <div class="gallery-grid reveal reveal-fade-up stagger-1">
+                <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#lightboxModal">
+                    <img src="https://images.pexels.com/photos/12278580/pexels-photo-12278580.jpeg"
+                        alt="Plant Operations">
+                    <div class="gallery-overlay"><i class="bi bi-zoom-in"></i></div>
+                </div>
+                <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#lightboxModal">
+                    <img src="https://images.pexels.com/photos/37769430/pexels-photo-37769430.jpeg"
+                        alt="Refinery Module">
+                    <div class="gallery-overlay"><i class="bi bi-zoom-in"></i></div>
+                </div>
+                <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#lightboxModal">
+                    <img src="https://images.pexels.com/photos/36423802/pexels-photo-36423802.jpeg" alt="Plant Fleet">
+                    <div class="gallery-overlay"><i class="bi bi-zoom-in"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Wind Energy Projects -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="mb-4 text-center reveal reveal-fade-up">
+                <h3 class="fw-bold border-bottom pb-3 d-inline-block">Renewable Energy</h3>
+            </div>
+            <div class="gallery-grid reveal reveal-zoom">
+                <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#lightboxModal">
+                    <img src="https://images.pexels.com/photos/414905/pexels-photo-414905.jpeg" alt="Wind Turbine">
+                    <div class="gallery-overlay"><i class="bi bi-zoom-in"></i></div>
+                </div>
+                <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#lightboxModal">
+                    <img src="images/rough_terrain_crane_card.png" alt="Off-road Transport">
+                    <div class="gallery-overlay"><i class="bi bi-zoom-in"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Video Showcase -->
+    <section class="section-padding bg-primary-brand">
+        <div class="container">
+            <div class="text-center mb-5 reveal reveal-fade-up">
+                <span class="text-secondary-brand fw-semibold text-uppercase">Motion</span>
+                <h2 class="fw-bold text-white mt-2">Watch Us In Action</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10 reveal reveal-zoom">
+                    <div class="video-showcase">
+                        <img src="images/hero_bg_services.png" alt="Video Thumbnail">
+                        <div class="play-button">
+                            <i class="bi bi-play-fill"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div class="modal fade" id="lightboxModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content bg-transparent border-0">
+                <div class="modal-header border-0 pb-0">
+                    <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center p-0">
+                    <img src="images/project_featured_1.png" class="img-fluid rounded" alt="Enlarged Project">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 pe-lg-5">
+                    <a class="navbar-brand d-flex align-items-center mb-4 text-decoration-none" href="index.html">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="height: 40px;">
+                            <path
+                                d="M10,90 L90,90 L90,80 L60,80 L60,20 L80,20 L80,10 L20,10 L20,20 L40,20 L40,80 L10,80 Z"
+                                fill="var(--secondary-color)" />
+                            <circle cx="50" cy="50" r="10" fill="var(--primary-color)" />
+                        </svg>
+                        <span class="fs-4 fw-bold ms-2" style="color: var(--text-color);">AeroLift</span>
+                    </a>
+                    <p>Premium crane hire and heavy lift logistics solutions for enterprise infrastructure, industrial,
+                        and energy projects worldwide.</p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#" class="text-white fs-5"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="text-white fs-5"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="text-white fs-5"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5>Fleet</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="#">Mobile Cranes</a></li>
+                        <li><a href="#">Crawler Cranes</a></li>
+                        <li><a href="#">Tower Cranes</a></li>
+                        <li><a href="#">Rough Terrain</a></li>
+                        <li><a href="#">Heavy Haulage</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5>Newsletter</h5>
+                    <p>Subscribe for industry insights and fleet updates.</p>
+                    <form class="d-flex gap-2 mt-3">
+                        <input type="email" class="form-control" placeholder="Email address" required>
+                        <button class="btn btn-primary" type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row footer-bottom align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <small>&copy; 2026 AeroLift. All rights reserved.</small>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <small>
+                        <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Back to Top
+                            <i class="bi bi-arrow-up"></i></a>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

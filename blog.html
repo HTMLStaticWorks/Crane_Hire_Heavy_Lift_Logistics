@@ -1,0 +1,483 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industry Insights & Blog | AeroLift</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* Blog Specific Styles */
+
+        .inner-hero {
+            padding: 10rem 0 6rem;
+            background-image: linear-gradient(rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.9)), url('images/hero_crane_home1.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #fff;
+            text-align: center;
+        }
+
+        /* 2. Magazine Style Layout */
+        .magazine-featured {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .magazine-featured img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+        }
+
+        .magazine-featured-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 3rem;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+            color: #fff;
+        }
+
+        .magazine-side-post {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            background: var(--surface-color);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease;
+        }
+
+        .magazine-side-post:hover {
+            transform: translateX(10px);
+            border-color: var(--secondary-color);
+        }
+
+        .magazine-side-post img {
+            width: 120px;
+            height: 120px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        /* 3. Hover Lift Cards */
+        .blog-card {
+            background: var(--surface-color);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: all 0.4s ease;
+            height: 100%;
+        }
+
+        .blog-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .blog-card-body {
+            padding: 2rem;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: transparent;
+        }
+
+        .blog-card:hover img {
+            transform: scale(1.05);
+        }
+
+        /* 4. Industry News (List) */
+        .news-list-item {
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border-color);
+            transition: padding 0.3s ease;
+        }
+
+        .news-list-item:hover {
+            padding-left: 1rem;
+        }
+
+        /* 5. Newsletter CTA */
+        .newsletter-cta {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 6rem 0;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter-cta::after {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: var(--secondary-color);
+            border-radius: 50%;
+            opacity: 0.2;
+            z-index: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10,90 L90,90 L90,80 L60,80 L60,20 L80,20 L80,10 L20,10 L20,20 L40,20 L40,80 L10,80 Z"
+                        fill="var(--secondary-color)" />
+                    <circle cx="50" cy="50" r="10" fill="var(--primary-color)" />
+                </svg>
+                <span>AeroLift</span>
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home 1</a></li>
+                    <li class="nav-item"><a class="nav-link" href="home-2.html">Home 2</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-3">
+                    <button class="theme-toggle-btn" aria-label="Toggle Theme"><i class="bi bi-moon-fill"></i></button>
+                    <button class="rtl-toggle-btn" aria-label="Toggle RTL">RTL</button>
+                    <a href="login.html" class="btn btn-outline">Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Offcanvas (Simplified) -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" style="background: var(--bg-color);">
+        <div class="offcanvas-header border-bottom border-secondary">
+            <h5 class="offcanvas-title fw-bold" style="color: var(--text-color);">Menu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+    </div>
+
+    <!-- 1. Hero Section -->
+    <section class="inner-hero reveal reveal-fade-up">
+        <div class="container">
+            <span class="text-secondary-brand fw-bold text-uppercase tracking-wide mb-2 d-inline-block">Heavy Lift
+                Intel</span>
+            <h1 class="display-3 fw-bold mb-3">Industry Insights & News</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center">
+                    <li class="breadcrumb-item"><a href="index.html" class="text-white-50 text-decoration-none">Home</a>
+                    </li>
+                    <li class="breadcrumb-item active text-white" aria-current="page">Blog</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- 2. Featured Article (Magazine Style) -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-8 reveal reveal-fade-right">
+                    <a href="blog-details.html" class="text-decoration-none">
+                        <div class="magazine-featured">
+                            <img src="images/project_featured_1.png" alt="Featured Bridge Lift">
+                            <div class="magazine-featured-overlay">
+                                <span class="badge bg-secondary-brand text-primary-brand mb-3 px-3 py-2 fw-bold">Case
+                                    Study</span>
+                                <h2 class="fw-bold mb-3 text-white">Execution of the Apex Bridge 500T Tandem Lift</h2>
+                                <p class="text-white-50 mb-0 d-none d-md-block">A deep dive into the engineering
+                                    challenges and logistics coordination required to execute a tandem crawler lift over
+                                    an active interstate highway.</p>
+                                <div class="mt-3 text-secondary">
+                                    <small><i class="bi bi-calendar-event me-2"></i> June 15, 2026</small>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 d-flex flex-column gap-4 reveal reveal-fade-left">
+                    <h4 class="fw-bold border-bottom pb-2 mb-0">Trending Stories</h4>
+                    <a href="blog-details.html" class="text-decoration-none text-body">
+                        <div class="magazine-side-post">
+                            <img src="https://images.pexels.com/photos/38073138/pexels-photo-38073138.jpeg"
+                                alt="Safety Post">
+                            <div>
+                                <span class="text-secondary-brand small fw-bold text-uppercase">Safety First</span>
+                                <h5 class="fw-bold mb-2 mt-1 fs-6">Evolving NCCCO Standards for 2026</h5>
+                                <small class="text-muted">June 10, 2026</small>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="blog-details.html" class="text-decoration-none text-body">
+                        <div class="magazine-side-post">
+                            <img src="https://images.pexels.com/photos/33609018/pexels-photo-33609018.png"
+                                alt="Tech Post">
+                            <div>
+                                <span class="text-secondary-brand small fw-bold text-uppercase">Technology</span>
+                                <h5 class="fw-bold mb-2 mt-1 fs-6">The Role of 3D CAD in Lift Simulations</h5>
+                                <small class="text-muted">June 02, 2026</small>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="blog-details.html" class="text-decoration-none text-body">
+                        <div class="magazine-side-post">
+                            <img src="https://images.pexels.com/photos/10174791/pexels-photo-10174791.jpeg"
+                                alt="Wind Post">
+                            <div>
+                                <span class="text-secondary-brand small fw-bold text-uppercase">Renewables</span>
+                                <h5 class="fw-bold mb-2 mt-1 fs-6">Scaling Up: Next-Gen Turbine Logistics</h5>
+                                <small class="text-muted">May 28, 2026</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Latest Insights (Hover Lift) -->
+    <section class="section-padding bg-surface-color">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-end mb-5 reveal reveal-fade-up">
+                <div>
+                    <span class="text-secondary-brand fw-semibold text-uppercase">Articles</span>
+                    <h2 class="fw-bold mt-2 mb-0">Latest Insights</h2>
+                </div>
+                <a href="#" class="btn btn-outline d-none d-md-inline-block">View All</a>
+            </div>
+            <div class="row g-4">
+                <!-- Card 1 -->
+                <div class="col-md-6 col-lg-4 reveal reveal-fade-up stagger-1">
+                    <div class="blog-card">
+                        <img src="images/crawler_crane_card.png" alt="Crawler Blog">
+                        <div class="blog-card-body">
+                            <span class="badge bg-primary-brand text-white mb-3">Equipment</span>
+                            <h4 class="fw-bold mb-3"><a href="blog-details.html"
+                                    class="text-decoration-none text-body">Maximizing Ground Bearing Capacity</a></h4>
+                            <p class="text-muted mb-4">Understanding soil mechanics and proper matting techniques for
+                                heavy crawler setups.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted fw-medium">By Marcus Thorne</small>
+                                <a href="blog-details.html" class="text-secondary-brand"><i
+                                        class="bi bi-arrow-right-circle fs-4"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="col-md-6 col-lg-4 reveal reveal-fade-up stagger-2">
+                    <div class="blog-card">
+                        <img src="https://images.pexels.com/photos/9472095/pexels-photo-9472095.jpeg"
+                            alt="Logistics Blog">
+                        <div class="blog-card-body">
+                            <span class="badge bg-primary-brand text-white mb-3">Logistics</span>
+                            <h4 class="fw-bold mb-3"><a href="blog-details.html"
+                                    class="text-decoration-none text-body">Navigating Interstate Permitting</a></h4>
+                            <p class="text-muted mb-4">A comprehensive guide to routing oversized cargo across multiple
+                                state lines.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted fw-medium">By Elena Rostova</small>
+                                <a href="blog-details.html" class="text-secondary-brand"><i
+                                        class="bi bi-arrow-right-circle fs-4"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="col-md-6 col-lg-4 reveal reveal-fade-up stagger-3">
+                    <div class="blog-card">
+                        <img src="https://images.pexels.com/photos/35676602/pexels-photo-35676602.jpeg"
+                            alt="Company Blog">
+                        <div class="blog-card-body">
+                            <span class="badge bg-primary-brand text-white mb-3">Company News</span>
+                            <h4 class="fw-bold mb-3"><a href="blog-details.html"
+                                    class="text-decoration-none text-body">AeroLift Expands European Operations</a></h4>
+                            <p class="text-muted mb-4">Opening our new logistics hub in Rotterdam to support offshore
+                                wind projects.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted fw-medium">By Robert Vance</small>
+                                <a href="blog-details.html" class="text-secondary-brand"><i
+                                        class="bi bi-arrow-right-circle fs-4"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Industry News (Fade Reveal List) -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="text-center mb-5 reveal reveal-fade-up">
+                        <h2 class="fw-bold">Short Reads & Announcements</h2>
+                    </div>
+
+                    <div class="news-list-item reveal reveal-fade-up stagger-1">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="text-secondary-brand fw-bold small">Press Release</span>
+                            <small class="text-muted">May 15, 2026</small>
+                        </div>
+                        <h4 class="fw-bold"><a href="#" class="text-decoration-none text-body">AeroLift Secures ISO
+                                45001 Re-certification</a></h4>
+                        <p class="text-muted mb-0">Reaffirming our commitment to the highest global occupational health
+                            and safety standards.</p>
+                    </div>
+
+                    <div class="news-list-item reveal reveal-fade-up stagger-2">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="text-secondary-brand fw-bold small">Fleet Update</span>
+                            <small class="text-muted">May 02, 2026</small>
+                        </div>
+                        <h4 class="fw-bold"><a href="#" class="text-decoration-none text-body">Addition of Two 1200T
+                                All-Terrain Cranes</a></h4>
+                        <p class="text-muted mb-0">Expanding our rapid-deployment fleet with the latest low-emission
+                            mobile crane technology.</p>
+                    </div>
+
+                    <div class="news-list-item reveal reveal-fade-up stagger-3">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="text-secondary-brand fw-bold small">Award</span>
+                            <small class="text-muted">April 20, 2026</small>
+                        </div>
+                        <h4 class="fw-bold"><a href="#" class="text-decoration-none text-body">SC&RA Rigging Job of the
+                                Year 2026</a></h4>
+                        <p class="text-muted mb-0">Honored by the Specialized Carriers & Rigging Association for our
+                            work on the Titan Refinery Turnaround.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Newsletter CTA (Slide Reveal) -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="newsletter-cta text-center reveal reveal-slide-up position-relative z-1">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 position-relative z-2">
+                        <i class="bi bi-envelope-paper-heart fs-1 text-secondary-brand mb-3 d-inline-block"></i>
+                        <h2 class="fw-bold mb-3">Subscribe to The Lift Report</h2>
+                        <p class="mb-5 text-white-50">Join 10,000+ industry professionals receiving our monthly insights
+                            on heavy lift engineering, safety protocols, and mega-project case studies.</p>
+
+                        <form class="d-flex gap-2 bg-white p-2 rounded-pill shadow">
+                            <input type="email" class="form-control border-0 bg-transparent px-4"
+                                placeholder="Enter your email address" required>
+                            <button type="submit" class="btn btn-primary rounded-pill px-4 fw-bold">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 pe-lg-5">
+                    <a class="navbar-brand d-flex align-items-center mb-4 text-decoration-none" href="index.html">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="height: 40px;">
+                            <path
+                                d="M10,90 L90,90 L90,80 L60,80 L60,20 L80,20 L80,10 L20,10 L20,20 L40,20 L40,80 L10,80 Z"
+                                fill="var(--secondary-color)" />
+                            <circle cx="50" cy="50" r="10" fill="var(--primary-color)" />
+                        </svg>
+                        <span class="fs-4 fw-bold ms-2" style="color: var(--text-color);">AeroLift</span>
+                    </a>
+                    <p>Premium crane hire and heavy lift logistics solutions for enterprise infrastructure, industrial,
+                        and energy projects worldwide.</p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#" class="text-white fs-5"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="text-white fs-5"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="text-white fs-5"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5>Fleet</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="#">Mobile Cranes</a></li>
+                        <li><a href="#">Crawler Cranes</a></li>
+                        <li><a href="#">Tower Cranes</a></li>
+                        <li><a href="#">Rough Terrain</a></li>
+                        <li><a href="#">Heavy Haulage</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5>Newsletter</h5>
+                    <p>Subscribe for industry insights and fleet updates.</p>
+                    <form class="d-flex gap-2 mt-3">
+                        <input type="email" class="form-control" placeholder="Email address" required>
+                        <button class="btn btn-primary" type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row footer-bottom align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <small>&copy; 2026 AeroLift. All rights reserved.</small>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <small>
+                        <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Back to Top
+                            <i class="bi bi-arrow-up"></i></a>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

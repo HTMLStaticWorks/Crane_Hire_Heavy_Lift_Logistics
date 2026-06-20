@@ -1,1 +1,487 @@
-hello
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crane Hire & Heavy Lift Logistics | Premium Industrial Solutions</title>
+    <meta name="description" content="Premium Crane Hire & Heavy Lift Logistics. Showcase crane fleet specifications, lift capacity charts, and expert logistics solutions.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* Home 1 Specific Styles */
+        .hero-section {
+            padding: 8rem 0 6rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-image-wrapper {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .hero-image-wrapper img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block;
+        }
+        .floating-card {
+            position: absolute;
+            bottom: -20px;
+            left: -30px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--glass-shadow);
+            border: 1px solid var(--glass-border);
+            animation: float 6s ease-in-out infinite;
+            z-index: 2;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .fleet-card {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            height: 400px;
+            cursor: pointer;
+            transition: transform 0.5s ease;
+            transform-style: preserve-3d;
+        }
+        .fleet-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+        .fleet-card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem;
+            background: linear-gradient(to top, rgba(11,28,44,0.9) 0%, rgba(11,28,44,0) 100%);
+            color: #fff;
+            transform: translateY(20px);
+            opacity: 0.9;
+            transition: all 0.4s ease;
+        }
+        .fleet-card:hover {
+            transform: translateY(-10px) rotateX(2deg) rotateY(-2deg);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        .fleet-card:hover img {
+            transform: scale(1.1);
+        }
+        .fleet-card:hover .fleet-card-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .capacity-section {
+            background-color: var(--surface-color);
+        }
+        
+        .parallax-section {
+            background-image: url('images/project_featured_1.png');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            padding: 8rem 0;
+            color: #fff;
+        }
+        
+        .testimonial-card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            padding: 3rem;
+            border-radius: 16px;
+            position: relative;
+        }
+        .quote-icon {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 4rem;
+            color: var(--secondary-color);
+            opacity: 0.2;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="height: 40px;">
+                    <path d="M10,90 L90,90 L90,80 L60,80 L60,20 L80,20 L80,10 L20,10 L20,20 L40,20 L40,80 L10,80 Z" fill="var(--secondary-color)"/>
+                    <circle cx="50" cy="50" r="10" fill="var(--primary-color)"/>
+                </svg>
+                <span class="ms-2">AeroLift</span>
+            </a>
+            
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home 1</a></li>
+                    <li class="nav-item"><a class="nav-link" href="home-2.html">Home 2</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-3">
+                    <button class="theme-toggle-btn btn btn-link text-decoration-none p-0" aria-label="Toggle Theme"><i class="bi bi-moon-fill text-muted fs-5"></i></button>
+                    <button class="rtl-toggle-btn btn btn-link text-decoration-none text-muted fw-semibold p-0" aria-label="Toggle RTL">RTL</button>
+                    <a href="login.html" class="btn btn-outline">Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Offcanvas -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" style="background: var(--bg-color);">
+        <div class="offcanvas-header border-bottom border-secondary">
+            <h5 class="offcanvas-title fw-bold" style="color: var(--text-color);">Menu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" style="filter: invert(var(--bs-btn-close-white-filter, 0));"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home 1</a></li>
+                <li class="nav-item"><a class="nav-link" href="home-2.html">Home 2</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item mt-3"><a href="login.html" class="btn btn-primary w-100">Login</a></li>
+                <li class="nav-item mt-3 d-flex gap-2">
+                    <button class="theme-toggle-btn btn btn-outline w-50"><i class="bi bi-moon-fill"></i> Theme</button>
+                    <button class="rtl-toggle-btn btn btn-outline w-50">RTL</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 1. Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0 reveal reveal-fade-right">
+                    <span class="text-secondary-brand fw-semibold mb-2 d-block text-uppercase tracking-wide">Enterprise Heavy Lifting</span>
+                    <h1 class="display-3 fw-bold mb-4">Precision Logistics for <span class="text-primary-brand">Massive Scale</span></h1>
+                    <p class="lead mb-5 text-muted">Delivering certified heavy lift solutions, state-of-the-art crane fleets, and engineered rigging for the world's most demanding infrastructure projects.</p>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="services.html" class="btn btn-primary btn-lg">Explore Fleet</a>
+                        <a href="contact.html" class="btn btn-outline btn-lg">Request Quote</a>
+                    </div>
+                </div>
+                <div class="col-lg-5 offset-lg-1 reveal reveal-fade-left">
+                    <div class="hero-image-wrapper">
+                        <img src="images/hero_crane_home1.png" alt="Heavy Lift Mobile Crane" class="img-fluid">
+                        <div class="floating-card d-flex align-items-center gap-3">
+                            <div class="bg-primary-brand rounded-circle p-3 d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                                <i class="bi bi-shield-check fs-3"></i>
+                            </div>
+                            <div>
+                                <h4 class="mb-0 fw-bold"><span class="counter-value" data-target="1500" data-suffix="+">0</span></h4>
+                                <small class="text-muted">Safe Lifts Completed</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Fleet Categories -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5 reveal reveal-fade-up">
+                <span class="text-secondary-brand fw-semibold text-uppercase">Our Equipment</span>
+                <h2 class="fw-bold mt-2">Comprehensive Crane Fleet</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3 reveal reveal-fade-up stagger-1">
+                    <div class="fleet-card">
+                        <img src="images/mobile_crane_card.png" alt="Mobile Cranes">
+                        <div class="fleet-card-overlay">
+                            <h4 class="fw-bold">Mobile Cranes</h4>
+                            <p class="mb-0 text-white-50">Up to 1200T Capacity</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 reveal reveal-fade-up stagger-2">
+                    <div class="fleet-card">
+                        <img src="images/tower_crane_card.png" alt="Tower Cranes">
+                        <div class="fleet-card-overlay">
+                            <h4 class="fw-bold">Tower Cranes</h4>
+                            <p class="mb-0 text-white-50">High-rise Construction</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 reveal reveal-fade-up stagger-3">
+                    <div class="fleet-card">
+                        <img src="images/crawler_crane_card.png" alt="Crawler Cranes">
+                        <div class="fleet-card-overlay">
+                            <h4 class="fw-bold">Crawler Cranes</h4>
+                            <p class="mb-0 text-white-50">Heavy Terrain Lifting</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 reveal reveal-fade-up stagger-4">
+                    <div class="fleet-card">
+                        <img src="images/rough_terrain_crane_card.png" alt="Rough Terrain Cranes">
+                        <div class="fleet-card-overlay">
+                            <h4 class="fw-bold">Rough Terrain</h4>
+                            <p class="mb-0 text-white-50">Off-road Capabilities</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Lift Capacity Showcase -->
+    <section class="section-padding capacity-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0 reveal reveal-fade-right">
+                    <h2 class="fw-bold mb-4">Engineered for Maximum Capacity</h2>
+                    <p class="text-muted mb-4">Our engineering team provides comprehensive lift planning, utilizing 3D CAD modeling and ground bearing pressure calculations to ensure every lift is executed flawlessly.</p>
+                    
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="bg-secondary-brand rounded-circle p-2 me-3 text-white">
+                            <i class="bi bi-check2"></i>
+                        </div>
+                        <h5 class="mb-0 fw-semibold">3D Lift Planning Integration</h5>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="bg-secondary-brand rounded-circle p-2 me-3 text-white">
+                            <i class="bi bi-check2"></i>
+                        </div>
+                        <h5 class="mb-0 fw-semibold">Certified Rigging Specialists</h5>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <div class="bg-secondary-brand rounded-circle p-2 me-3 text-white">
+                            <i class="bi bi-check2"></i>
+                        </div>
+                        <h5 class="mb-0 fw-semibold">Site-specific Safety Protocols</h5>
+                    </div>
+                </div>
+                <div class="col-lg-5 offset-lg-1 reveal reveal-fade-left">
+                    <img src="images/heavy_lift_home2_1781934419975.png" alt="Heavy Lift Capacity" class="img-fluid rounded-4 shadow-lg border border-secondary border-opacity-25 w-100" style="object-fit: cover; aspect-ratio: 4/3;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Why Choose Us -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5 reveal reveal-fade-up">
+                <span class="text-secondary-brand fw-semibold text-uppercase">The AeroLift Advantage</span>
+                <h2 class="fw-bold mt-2">Why Industry Leaders Trust Us</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4 reveal reveal-zoom stagger-1">
+                    <div class="glass-card text-center h-100">
+                        <div class="d-inline-block bg-primary-brand text-white p-4 rounded-circle mb-4">
+                            <i class="bi bi-person-badge fs-1"></i>
+                        </div>
+                        <h4 class="fw-bold">Certified Operators</h4>
+                        <p class="text-muted">Our team undergoes rigorous continuous training and holds NCCCO certifications for all equipment classes.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 reveal reveal-zoom stagger-2">
+                    <div class="glass-card text-center h-100">
+                        <div class="d-inline-block bg-primary-brand text-white p-4 rounded-circle mb-4">
+                            <i class="bi bi-shield-lock fs-1"></i>
+                        </div>
+                        <h4 class="fw-bold">Zero-Incident Safety</h4>
+                        <p class="text-muted">Safety isn't just a policy; it's our culture. We maintain an industry-leading EMR and flawless safety record.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 reveal reveal-zoom stagger-3">
+                    <div class="glass-card text-center h-100">
+                        <div class="d-inline-block bg-primary-brand text-white p-4 rounded-circle mb-4">
+                            <i class="bi bi-globe fs-1"></i>
+                        </div>
+                        <h4 class="fw-bold">Nationwide Logistics</h4>
+                        <p class="text-muted">Seamless transport of oversized cargo with comprehensive route planning and permitting services.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Featured Projects (Parallax) -->
+    <section class="parallax-section">
+        <div class="dark-overlay"></div>
+        <div class="container position-relative z-1">
+            <div class="row text-center mb-5 reveal reveal-fade-up">
+                <div class="col-lg-8 mx-auto">
+                    <span class="text-secondary-brand fw-semibold text-uppercase">Portfolio</span>
+                    <h2 class="fw-bold mt-2 display-5">Featured Mega Projects</h2>
+                    <p class="lead">View our track record of successfully executing the most complex heavy lift operations across energy, infrastructure, and industrial sectors.</p>
+                </div>
+            </div>
+            <div class="row justify-content-center reveal reveal-fade-up stagger-2">
+                <div class="col-auto">
+                    <a href="gallery.html" class="btn btn-primary btn-lg">View Complete Gallery</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Client Testimonials -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5 reveal reveal-fade-up">
+                <span class="text-secondary-brand fw-semibold text-uppercase">Client Feedback</span>
+                <h2 class="fw-bold mt-2">Trusted by the Best</h2>
+            </div>
+            
+            <div class="row g-4 reveal reveal-fade-up">
+                <!-- Testimonial 1 -->
+                <div class="col-lg-4 col-md-6 stagger-1">
+                    <div class="testimonial-card text-center h-100 d-flex flex-column">
+                        <i class="bi bi-quote quote-icon"></i>
+                        <p class="fs-6 fst-italic mb-4 flex-grow-1">"AeroLift executed a 500-ton bridge beam lift over an active highway with flawless precision. Their engineering team's preparation was second to none."</p>
+                        <div class="d-flex justify-content-center mb-3 text-secondary-brand">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                        <img src="images/team_operator_1_1781934636350.png" alt="David Chen" class="rounded-circle mb-3 mx-auto" style="width: 60px; height: 60px; object-fit: cover;">
+                        <h5 class="fw-bold mb-0">David Chen</h5>
+                        <span class="text-muted small">Project Director, Apex Infrastructure</span>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="col-lg-4 col-md-6 stagger-2">
+                    <div class="testimonial-card text-center h-100 d-flex flex-column">
+                        <i class="bi bi-quote quote-icon"></i>
+                        <p class="fs-6 fst-italic mb-4 flex-grow-1">"For our wind turbine installations, we rely exclusively on AeroLift. Their crawler crane operators are highly skilled and prioritize safety above all else."</p>
+                        <div class="d-flex justify-content-center mb-3 text-secondary-brand">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                        <img src="images/team_operator_2_1781934646913.png" alt="Sarah Jenkins" class="rounded-circle mb-3 mx-auto" style="width: 60px; height: 60px; object-fit: cover;">
+                        <h5 class="fw-bold mb-0">Sarah Jenkins</h5>
+                        <span class="text-muted small">Operations Manager, GreenEnergy</span>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="col-lg-4 col-md-6 stagger-3">
+                    <div class="testimonial-card text-center h-100 d-flex flex-column">
+                        <i class="bi bi-quote quote-icon"></i>
+                        <p class="fs-6 fst-italic mb-4 flex-grow-1">"When we faced a critical timeline on the port expansion project, their 24/7 response team deployed specialized equipment that kept us on schedule."</p>
+                        <div class="d-flex justify-content-center mb-3 text-secondary-brand">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                        <img src="images/team_operator_3_1781934669674.png" alt="Marcus Thorne" class="rounded-circle mb-3 mx-auto" style="width: 60px; height: 60px; object-fit: cover;">
+                        <h5 class="fw-bold mb-0">Marcus Thorne</h5>
+                        <span class="text-muted small">Logistics Chief, Global Marine</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 pe-lg-5">
+                    <a class="navbar-brand d-flex align-items-center mb-4 text-decoration-none" href="index.html">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="height: 40px;">
+                            <path d="M10,90 L90,90 L90,80 L60,80 L60,20 L80,20 L80,10 L20,10 L20,20 L40,20 L40,80 L10,80 Z" fill="var(--secondary-color)"/>
+                            <circle cx="50" cy="50" r="10" fill="var(--primary-color)"/>
+                        </svg>
+                        <span class="fs-4 fw-bold ms-2" style="color: var(--text-color);">AeroLift</span>
+                    </a>
+                    <p>Premium crane hire and heavy lift logistics solutions for enterprise infrastructure, industrial, and energy projects worldwide.</p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#" class="text-white fs-5"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="text-white fs-5"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="text-white fs-5"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5>Fleet</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="#">Mobile Cranes</a></li>
+                        <li><a href="#">Crawler Cranes</a></li>
+                        <li><a href="#">Tower Cranes</a></li>
+                        <li><a href="#">Rough Terrain</a></li>
+                        <li><a href="#">Heavy Haulage</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5>Newsletter</h5>
+                    <p>Subscribe for industry insights and fleet updates.</p>
+                    <form class="d-flex gap-2 mt-3">
+                        <input type="email" class="form-control" placeholder="Email address" required>
+                        <button class="btn btn-primary" type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row footer-bottom align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <small>&copy; 2026 AeroLift. All rights reserved.</small>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <small>
+                        <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Back to Top <i class="bi bi-arrow-up"></i></a>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>
+
+
+
+

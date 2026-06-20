@@ -1,0 +1,316 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Details | AeroLift</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* Blog Details Specific Styles */
+        
+        /* 1. Article Hero */
+        .article-hero {
+            padding: 12rem 0 4rem;
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        /* 2. Blog Content (Typography focus) */
+        .article-content {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-color);
+            opacity: 0.9;
+        }
+        [data-theme="dark"] .article-content {
+            color: #ccc;
+        }
+        .article-content h2, .article-content h3 {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-color);
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+        .article-content blockquote {
+            border-left: 5px solid var(--secondary-color);
+            padding: 2rem;
+            background: var(--surface-color);
+            font-style: italic;
+            font-size: 1.4rem;
+            margin: 3rem 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        /* 3. Masonry Gallery */
+        .masonry-grid {
+            column-count: 2;
+            column-gap: 1.5rem;
+        }
+        @media (max-width: 768px) {
+            .masonry-grid { column-count: 1; }
+        }
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+        .masonry-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        .masonry-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* 5. Discussion CTA */
+        .discussion-box {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 3rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10,90 L90,90 L90,80 L60,80 L60,20 L80,20 L80,10 L20,10 L20,20 L40,20 L40,80 L10,80 Z" fill="var(--secondary-color)"/>
+                    <circle cx="50" cy="50" r="10" fill="var(--primary-color)"/>
+                </svg>
+                <span>AeroLift</span>
+            </a>
+            
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home 1</a></li>
+                    <li class="nav-item"><a class="nav-link" href="home-2.html">Home 2</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-3">
+                    <button class="theme-toggle-btn" aria-label="Toggle Theme"><i class="bi bi-moon-fill"></i></button>
+                    <button class="rtl-toggle-btn" aria-label="Toggle RTL">RTL</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. Article Hero Section -->
+    <section class="article-hero reveal reveal-fade-up">
+        <div class="container text-center">
+            <span class="badge bg-secondary-brand text-primary-brand mb-4 px-3 py-2 fw-bold text-uppercase tracking-wide">Case Study</span>
+            <h1 class="display-4 fw-bold mb-4 mx-auto" style="max-width: 900px;">Execution of the Apex Bridge 500T Tandem Lift</h1>
+            
+            <div class="d-flex justify-content-center align-items-center gap-4 text-white-50 mt-5">
+                <div class="d-flex align-items-center gap-2">
+                    <img src="images/team_operator_2.png" alt="Marcus Thorne" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover;">
+                    <span class="fw-medium text-white">Marcus Thorne</span>
+                </div>
+                <span><i class="bi bi-calendar-event me-2"></i> June 15, 2026</span>
+                <span><i class="bi bi-clock me-2"></i> 8 min read</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Image Outset -->
+    <div class="container mt-n5 position-relative z-1 reveal reveal-slide-up" style="margin-top: -3rem;">
+        <img src="images/project_featured_1.png" alt="Apex Bridge Lift" class="img-fluid rounded-4 shadow-lg w-100" style="max-height: 600px; object-fit: cover;">
+    </div>
+
+    <!-- 2. Blog Content -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 article-content reveal reveal-fade-up">
+                    <p class="lead fw-bold text-body mb-5">When the state Department of Transportation mandated the replacement of the central span of the Apex Interstate Bridge, the primary constraint was time. The highway could only be fully closed for a strict 12-hour window on a Saturday night.</p>
+                    
+                    <h2>The Engineering Challenge</h2>
+                    <p>The new steel arch span weighed exactly 485 metric tons. Lifting this monolithic structure required absolute precision, perfect weather conditions, and a tandem lift operation utilizing our two largest crawler cranes.</p>
+                    <p>Our engineering team spent four months preparing for this 12-hour window. Using advanced 3D CAD modeling, we simulated every phase of the lift, calculating ground bearing pressures down to the square inch to ensure the temporary matting could support the combined weight of the cranes and the load.</p>
+                    
+                    <blockquote>
+                        "In heavy lift logistics, you don't rise to the occasion; you fall to your level of preparation. For the Apex Bridge, our preparation was microscopic."
+                        <footer class="mt-2 fs-6 text-muted">— Marcus Thorne, Chief Lift Engineer</footer>
+                    </blockquote>
+                    
+                    <h2>Execution Night</h2>
+                    <p>At exactly 9:00 PM, the highway was closed. By 10:30 PM, the specialized SPMTs (Self-Propelled Modular Transporters) had maneuvered the new span into the staging area.</p>
+                    <p>The tandem lift utilized two 600T class crawler cranes. Operating in perfect synchronization, the operators communicated via dedicated radio channels, following the exact step-by-step lift director protocol. The load was transferred from the SPMTs, hoisted 40 meters into the air, swung 45 degrees, and lowered onto the new abutments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Project Gallery (Masonry) -->
+    <section class="py-5 bg-surface-color">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <h3 class="fw-bold mb-4 font-inter reveal reveal-fade-up">Operation Gallery</h3>
+                    <div class="masonry-grid reveal reveal-fade-up stagger-2">
+                        <div class="masonry-item">
+                            <img src="images/crawler_crane_card.png" alt="Crane Setup">
+                        </div>
+                        <div class="masonry-item">
+                            <img src="images/heavy_lift_home2.png" alt="Tandem Lift">
+                        </div>
+                        <div class="masonry-item">
+                            <img src="images/safety_compliance_home2.png" alt="Safety Briefing">
+                        </div>
+                        <div class="masonry-item">
+                            <img src="images/industries_served_home2.png" alt="Completion">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Related Articles (Card Lift) -->
+    <section class="section-padding">
+        <div class="container">
+            <h3 class="fw-bold mb-5 font-inter text-center reveal reveal-fade-up">Related Insights</h3>
+            <div class="row g-4">
+                <div class="col-md-6 reveal reveal-zoom stagger-1">
+                    <div class="glass-card h-100 p-0 overflow-hidden text-decoration-none">
+                        <img src="images/fleet_overview_home2.png" alt="Logistics" class="img-fluid" style="height: 200px; width: 100%; object-fit: cover;">
+                        <div class="p-4">
+                            <span class="text-secondary-brand small fw-bold text-uppercase">Logistics</span>
+                            <h4 class="fw-bold mt-2"><a href="#" class="text-body text-decoration-none">Navigating Interstate Permitting</a></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 reveal reveal-zoom stagger-2">
+                    <div class="glass-card h-100 p-0 overflow-hidden">
+                        <img src="images/tower_crane_card.png" alt="Tech" class="img-fluid" style="height: 200px; width: 100%; object-fit: cover;">
+                        <div class="p-4">
+                            <span class="text-secondary-brand small fw-bold text-uppercase">Technology</span>
+                            <h4 class="fw-bold mt-2"><a href="#" class="text-body text-decoration-none">The Role of 3D CAD in Lift Simulations</a></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Discussion CTA -->
+    <section class="pb-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 reveal reveal-fade-up">
+                    <div class="discussion-box text-center">
+                        <i class="bi bi-chat-quote fs-1 text-secondary-brand mb-3 d-inline-block"></i>
+                        <h3 class="fw-bold mb-3">Discuss Your Complex Lift</h3>
+                        <p class="text-muted mb-4">Facing a challenging engineering problem on your next project? Our team is ready to simulate and solve it.</p>
+                        <a href="contact.html" class="btn btn-primary fw-bold px-4 py-2">Contact Engineering</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 pe-lg-5">
+                    <a class="navbar-brand d-flex align-items-center mb-4 text-decoration-none" href="index.html">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="height: 40px;">
+                            <path d="M10,90 L90,90 L90,80 L60,80 L60,20 L80,20 L80,10 L20,10 L20,20 L40,20 L40,80 L10,80 Z" fill="var(--secondary-color)"/>
+                            <circle cx="50" cy="50" r="10" fill="var(--primary-color)"/>
+                        </svg>
+                        <span class="fs-4 fw-bold ms-2" style="color: var(--text-color);">AeroLift</span>
+                    </a>
+                    <p>Premium crane hire and heavy lift logistics solutions for enterprise infrastructure, industrial, and energy projects worldwide.</p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#" class="text-white fs-5"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="text-white fs-5"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="text-white fs-5"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5>Fleet</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="#">Mobile Cranes</a></li>
+                        <li><a href="#">Crawler Cranes</a></li>
+                        <li><a href="#">Tower Cranes</a></li>
+                        <li><a href="#">Rough Terrain</a></li>
+                        <li><a href="#">Heavy Haulage</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5>Newsletter</h5>
+                    <p>Subscribe for industry insights and fleet updates.</p>
+                    <form class="d-flex gap-2 mt-3">
+                        <input type="email" class="form-control" placeholder="Email address" required>
+                        <button class="btn btn-primary" type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row footer-bottom align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <small>&copy; 2026 AeroLift. All rights reserved.</small>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <small>
+                        <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Back to Top <i class="bi bi-arrow-up"></i></a>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>
+
+
+
+
+
+

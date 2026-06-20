@@ -1,0 +1,395 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing & Packages | AeroLift</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* Pricing Specific Styles */
+        
+        .inner-hero {
+            padding: 10rem 0 6rem;
+            background-image: linear-gradient(rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.9)), url('images/hero_crane_home1.png'); /* Reusing image */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #fff;
+            text-align: center;
+        }
+
+        /* 2-4. Pricing Cards */
+        .pricing-card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 3rem;
+            text-align: center;
+            position: relative;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .pricing-card.popular {
+            background: var(--primary-color);
+            color: #fff;
+            border-color: var(--secondary-color);
+            transform: scale(1.05);
+            z-index: 2;
+        }
+        .pricing-card.popular:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            box-shadow: 0 5px 15px rgba(240, 200, 8, 0.4);
+        }
+        .pricing-price {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin: 2rem 0 1rem;
+        }
+        .pricing-price span {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+        .pricing-card.popular .pricing-price span {
+            color: rgba(255,255,255,0.7);
+        }
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+            text-align: left;
+            flex-grow: 1;
+        }
+        .pricing-features li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .pricing-features i {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+        }
+
+        /* 5. Premium Accordion (FAQ) */
+        .premium-accordion .accordion-item {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .premium-accordion .accordion-item:hover {
+            border-color: var(--secondary-color);
+        }
+        .premium-accordion .accordion-button {
+            background: transparent;
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 1.5rem;
+            box-shadow: none;
+        }
+        .premium-accordion .accordion-button:not(.collapsed) {
+            color: var(--secondary-color);
+        }
+        .premium-accordion .accordion-body {
+            color: var(--text-muted);
+            padding: 0 1.5rem 1.5rem;
+            line-height: 1.8;
+        }
+        .premium-accordion .accordion-button::after {
+            filter: var(--accordion-icon-filter, invert(0));
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10,90 L90,90 L90,80 L60,80 L60,20 L80,20 L80,10 L20,10 L20,20 L40,20 L40,80 L10,80 Z" fill="var(--secondary-color)"/>
+                    <circle cx="50" cy="50" r="10" fill="var(--primary-color)"/>
+                </svg>
+                <span>AeroLift</span>
+            </a>
+            
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home 1</a></li>
+                    <li class="nav-item"><a class="nav-link" href="home-2.html">Home 2</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-3">
+                    <button class="theme-toggle-btn" aria-label="Toggle Theme"><i class="bi bi-moon-fill"></i></button>
+                    <button class="rtl-toggle-btn" aria-label="Toggle RTL">RTL</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. Hero Section -->
+    <section class="inner-hero reveal reveal-fade-up">
+        <div class="container">
+            <span class="text-secondary-brand fw-bold text-uppercase tracking-wide mb-2 d-inline-block">Transparent Models</span>
+            <h1 class="display-3 fw-bold mb-3">Service Packages</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center">
+                    <li class="breadcrumb-item"><a href="index.html" class="text-white-50 text-decoration-none">Home</a></li>
+                    <li class="breadcrumb-item active text-white" aria-current="page">Pricing</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Pricing Tiers -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5 reveal reveal-fade-up">
+                <h2 class="fw-bold">Tailored Lift Solutions</h2>
+                <p class="text-muted">From standard taxi-crane rentals to multi-year mega project contracts.</p>
+            </div>
+            
+            <div class="row align-items-center g-4">
+                <!-- 2. Standard Crane Package -->
+                <div class="col-lg-4 reveal reveal-fade-right stagger-1">
+                    <div class="pricing-card">
+                        <h4 class="fw-bold">Standard Rental</h4>
+                        <p class="text-muted small">For short-term, straightforward lifts.</p>
+                        <div class="pricing-price">
+                            Custom <span>/ day</span>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="bi bi-check-circle-fill"></i> Up to 100T Mobile Cranes</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Certified Operator Included</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Standard Rigging Gear</li>
+                            <li><i class="bi bi-dash-circle text-muted"></i> <span class="text-muted">No Lift Plan Engineering</span></li>
+                            <li><i class="bi bi-dash-circle text-muted"></i> <span class="text-muted">No Permitting Support</span></li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-outline w-100">Request Quote</a>
+                    </div>
+                </div>
+                
+                <!-- 3. Heavy Construction Package (Popular) -->
+                <div class="col-lg-4 reveal reveal-zoom stagger-2">
+                    <div class="pricing-card popular">
+                        <div class="popular-badge">Most Popular</div>
+                        <h4 class="fw-bold">Heavy Construction</h4>
+                        <p class="text-white-50 small">Comprehensive service for mid-to-large sites.</p>
+                        <div class="pricing-price">
+                            Contract <span>/ month</span>
+                        </div>
+                        <ul class="pricing-features text-white">
+                            <li><i class="bi bi-check-circle-fill"></i> Up to 500T Crawler/Mobile</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Full Crew (Operator + Rigger)</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Basic 3D Lift Planning</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Transport & Permitting</li>
+                            <li><i class="bi bi-dash-circle text-white-50"></i> <span class="text-white-50">No Dedicated On-site Engineer</span></li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-light text-primary-brand fw-bold w-100">Contact Sales</a>
+                    </div>
+                </div>
+                
+                <!-- 4. Industrial Mega Lift Package -->
+                <div class="col-lg-4 reveal reveal-fade-left stagger-3">
+                    <div class="pricing-card">
+                        <h4 class="fw-bold">Mega Lift & Logistics</h4>
+                        <p class="text-muted small">Turnkey engineering and execution.</p>
+                        <div class="pricing-price">
+                            Turnkey <span>/ project</span>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="bi bi-check-circle-fill"></i> Unlimited Capacity Access</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Advanced Lift Engineering</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Custom Fabricated Rigging</li>
+                            <li><i class="bi bi-check-circle-fill"></i> SPMT & Multi-Modal Transport</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Dedicated On-site Director</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-outline w-100">Consult Engineering</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. FAQ Section (Premium Accordion) -->
+    <section class="section-padding bg-surface-color">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="text-center mb-5 reveal reveal-fade-up">
+                        <span class="text-secondary-brand fw-semibold text-uppercase">Support</span>
+                        <h2 class="fw-bold mt-2">Frequently Asked Questions</h2>
+                    </div>
+                    
+                    <div class="accordion premium-accordion reveal reveal-slide-up" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">
+                                    Do you provide bare rental (without operator) options?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes, we offer bare rentals on specific equipment classes (primarily rough terrain and smaller crawlers) to qualified clients. Bare rentals require a comprehensive insurance review and proof of operator certification (NCCCO or equivalent).
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                                    What is included in a 3D lift plan?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Our standard 3D lift plans include load calculations, ground bearing pressure data, boom clearance metrics, rigging schematics, and step-by-step sequential lift frames to ensure complete safety and spatial awareness before mobilization.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+                                    How far in advance do I need to book a 500T+ crane?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    For cranes over 500 tons, we recommend engaging our engineering team at least 3-6 months prior to the required lift date. This lead time is necessary for route surveys, complex state permitting for oversized transport, and engineering approvals.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+                                    Are fuel and mobilization costs included in the quote?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Our turnkey project quotes are all-inclusive. Standard rental contracts typically bill mobilization/demobilization and fuel consumption as separate line items. This will be clearly detailed in your proposal.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 pe-lg-5">
+                    <a class="navbar-brand d-flex align-items-center mb-4 text-decoration-none" href="index.html">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="height: 40px;">
+                            <path d="M10,90 L90,90 L90,80 L60,80 L60,20 L80,20 L80,10 L20,10 L20,20 L40,20 L40,80 L10,80 Z" fill="var(--secondary-color)"/>
+                            <circle cx="50" cy="50" r="10" fill="var(--primary-color)"/>
+                        </svg>
+                        <span class="fs-4 fw-bold ms-2" style="color: var(--text-color);">AeroLift</span>
+                    </a>
+                    <p>Premium crane hire and heavy lift logistics solutions for enterprise infrastructure, industrial, and energy projects worldwide.</p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#" class="text-white fs-5"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="text-white fs-5"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="text-white fs-5"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5>Fleet</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="#">Mobile Cranes</a></li>
+                        <li><a href="#">Crawler Cranes</a></li>
+                        <li><a href="#">Tower Cranes</a></li>
+                        <li><a href="#">Rough Terrain</a></li>
+                        <li><a href="#">Heavy Haulage</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5>Newsletter</h5>
+                    <p>Subscribe for industry insights and fleet updates.</p>
+                    <form class="d-flex gap-2 mt-3">
+                        <input type="email" class="form-control" placeholder="Email address" required>
+                        <button class="btn btn-primary" type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row footer-bottom align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <small>&copy; 2026 AeroLift. All rights reserved.</small>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <small>
+                        <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Back to Top <i class="bi bi-arrow-up"></i></a>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>
+
+
+
+
+
+

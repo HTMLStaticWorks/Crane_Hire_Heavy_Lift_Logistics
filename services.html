@@ -1,0 +1,516 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | AeroLift</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* Services Page Specific Styles */
+
+        /* 1. Inner Hero */
+        .inner-hero {
+            padding: 10rem 0 6rem;
+            background-image: linear-gradient(rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.9)), url('images/hero_bg_services.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #fff;
+            text-align: center;
+        }
+
+        /* 2. Rotating Cards (Flip Cards) */
+        .flip-card-container {
+            perspective: 1000px;
+        }
+
+        .flip-card {
+            width: 100%;
+            height: 400px;
+            position: relative;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        .flip-card-container:hover .flip-card {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .flip-card-front {
+            background-color: var(--surface-color);
+        }
+
+        .flip-card-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .flip-card-front-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+            padding: 2rem;
+            color: #fff;
+        }
+
+        .flip-card-back {
+            background-color: var(--primary-color);
+            color: white;
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        /* 4. Rigging Hover Effects */
+        .rigging-box {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            border: 2px solid transparent;
+            transition: all 0.4s ease;
+        }
+
+        .rigging-box::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(240, 200, 8, 0.9);
+            /* Safety Yellow */
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            transition: width 0.6s ease, height 0.6s ease;
+            z-index: 1;
+        }
+
+        .rigging-box:hover::before {
+            width: 300%;
+            height: 300%;
+        }
+
+        .rigging-box img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .rigging-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            z-index: 2;
+        }
+
+        .rigging-box h4,
+        .rigging-box p {
+            position: relative;
+            z-index: 2;
+            color: #fff;
+            transition: transform 0.4s ease;
+        }
+
+        .rigging-box p {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .rigging-box:hover p {
+            opacity: 1;
+            transform: translateY(0);
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .rigging-box:hover h4 {
+            color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        /* 5. Logistics Stagger List */
+        .logistics-list li {
+            background: var(--surface-color);
+            margin-bottom: 1rem;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .logistics-list li:hover {
+            transform: translateX(10px);
+            background: var(--primary-color);
+            color: #fff;
+        }
+
+        .logistics-list li i {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="height: 40px;">
+                    <path d="M10,90 L90,90 L90,80 L60,80 L60,20 L80,20 L80,10 L20,10 L20,20 L40,20 L40,80 L10,80 Z"
+                        fill="var(--secondary-color)" />
+                    <circle cx="50" cy="50" r="10" fill="var(--primary-color)" />
+                </svg>
+                <span class="ms-2">AeroLift</span>
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home 1</a></li>
+                    <li class="nav-item"><a class="nav-link" href="home-2.html">Home 2</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-3">
+                    <button class="theme-toggle-btn btn btn-link text-decoration-none p-0" aria-label="Toggle Theme"><i
+                            class="bi bi-moon-fill text-muted fs-5"></i></button>
+                    <button class="rtl-toggle-btn btn btn-link text-decoration-none text-muted fw-semibold p-0"
+                        aria-label="Toggle RTL">RTL</button>
+                    <a href="login.html" class="btn btn-outline">Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Offcanvas -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" style="background: var(--bg-color);">
+        <div class="offcanvas-header border-bottom border-secondary">
+            <h5 class="offcanvas-title fw-bold" style="color: var(--text-color);">Menu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"
+                style="filter: invert(var(--bs-btn-close-white-filter, 0));"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home 1</a></li>
+                <li class="nav-item"><a class="nav-link" href="home-2.html">Home 2</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item mt-3"><a href="login.html" class="btn btn-primary w-100">Login</a></li>
+                <li class="nav-item mt-3 d-flex gap-2">
+                    <button class="theme-toggle-btn btn btn-outline w-50"><i class="bi bi-moon-fill"></i> Theme</button>
+                    <button class="rtl-toggle-btn btn btn-outline w-50">RTL</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 1. Hero Section -->
+    <section class="inner-hero reveal reveal-fade-up">
+        <div class="container">
+            <span class="text-secondary-brand fw-bold text-uppercase tracking-wide mb-2 d-inline-block">What We
+                Do</span>
+            <h1 class="display-3 fw-bold mb-3">Specialized Services</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center">
+                    <li class="breadcrumb-item"><a href="index.html" class="text-white-50 text-decoration-none">Home</a>
+                    </li>
+                    <li class="breadcrumb-item active text-white" aria-current="page">Services</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- 2. Crane Rental Services (Rotating Cards) -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5 reveal reveal-fade-up">
+                <span class="text-secondary-brand fw-semibold text-uppercase">Fleet Access</span>
+                <h2 class="fw-bold mt-2">Premium Crane Rentals</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4 reveal reveal-zoom stagger-1">
+                    <div class="flip-card-container">
+                        <div class="flip-card">
+                            <div class="flip-card-front">
+                                <img src="https://images.pexels.com/photos/33653792/pexels-photo-33653792.jpeg"
+                                    alt="Crawler Cranes">
+                                <div class="flip-card-front-overlay">
+                                    <h4 class="fw-bold mb-0">Crawler Cranes</h4>
+                                </div>
+                            </div>
+                            <div class="flip-card-back">
+                                <i class="bi bi-gear-fill fs-1 mb-3 text-secondary-brand"></i>
+                                <h4>Heavy Terrain</h4>
+                                <p>Capacities up to 3000T with various boom configurations for mega-projects.</p>
+                                <a href="service-details.html"
+                                    class="btn btn-outline-light mt-3 border-secondary-brand text-secondary-brand">View
+                                    Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 reveal reveal-zoom stagger-2">
+                    <div class="flip-card-container">
+                        <div class="flip-card">
+                            <div class="flip-card-front">
+                                <img src="images/mobile_crane_card.png" alt="Mobile Cranes">
+                                <div class="flip-card-front-overlay">
+                                    <h4 class="fw-bold mb-0">All-Terrain Mobile</h4>
+                                </div>
+                            </div>
+                            <div class="flip-card-back">
+                                <i class="bi bi-truck fs-1 mb-3 text-secondary-brand"></i>
+                                <h4>Rapid Deployment</h4>
+                                <p>Road-legal units capable of setting up and lifting within hours of arrival.</p>
+                                <a href="service-details.html"
+                                    class="btn btn-outline-light mt-3 border-secondary-brand text-secondary-brand">View
+                                    Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 reveal reveal-zoom stagger-3">
+                    <div class="flip-card-container">
+                        <div class="flip-card">
+                            <div class="flip-card-front">
+                                <img src="https://images.pexels.com/photos/14537425/pexels-photo-14537425.jpeg"
+                                    alt="Tower Cranes">
+                                <div class="flip-card-front-overlay">
+                                    <h4 class="fw-bold mb-0">Tower Cranes</h4>
+                                </div>
+                            </div>
+                            <div class="flip-card-back">
+                                <i class="bi bi-building fs-1 mb-3 text-secondary-brand"></i>
+                                <h4>High-Rise Solutions</h4>
+                                <p>Freestanding and climbing units designed for tight urban footprints.</p>
+                                <a href="service-details.html"
+                                    class="btn btn-outline-light mt-3 border-secondary-brand text-secondary-brand">View
+                                    Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Heavy Lift Planning (Scroll Reveal) -->
+    <section class="section-padding bg-surface-color">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0 reveal reveal-fade-right">
+                    <h2 class="fw-bold mb-4">Engineered Lift Planning</h2>
+                    <p class="text-muted mb-4">Execution is only as good as the preparation. Our engineering team
+                        provides detailed, site-specific 3D lift plans using state-of-the-art CAD software to simulate
+                        every variable before a crane even starts its engine.</p>
+                    <a href="service-details.html" class="btn btn-primary mt-2">Consult an Engineer</a>
+                </div>
+                <div class="col-lg-6 reveal reveal-slide-up">
+                    <img src="https://images.pexels.com/photos/15523261/pexels-photo-15523261.jpeg" alt="Lift Planning"
+                        class="img-fluid rounded-4 shadow-lg border border-5 border-white">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Rigging Solutions (Interactive Hover Effects) -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5 reveal reveal-fade-up">
+                <span class="text-secondary-brand fw-semibold text-uppercase">Precision</span>
+                <h2 class="fw-bold mt-2">Custom Rigging Solutions</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 reveal reveal-fade-up stagger-1">
+                    <div class="rigging-box">
+                        <img src="images/company_overview_about_1781934623222.png" alt="Spreader Bars">
+                        <div class="rigging-content">
+                            <h4 class="fw-bold">Modular Spreader Bars</h4>
+                            <p>Custom-engineered spreader bars ensuring load stability for oversized components up to
+                                1500T.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 reveal reveal-fade-up stagger-2">
+                    <div class="rigging-box">
+                        <img src="images/project_featured_1.png" alt="Wire Rope">
+                        <div class="rigging-content">
+                            <h4 class="fw-bold">Specialized Slings & Shackles</h4>
+                            <p>High-capacity synthetic, wire rope, and chain slings strictly inspected and certified.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Logistics Coordination (Stagger Animation) -->
+    <section class="section-padding bg-primary-brand text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 mb-5 mb-lg-0 reveal reveal-fade-right">
+                    <h2 class="fw-bold mb-4">Complete Logistics Coordination</h2>
+                    <p class="opacity-75 mb-4">We handle the A-to-Z of heavy transport. From factory to foundation, our
+                        logistics teams navigate complex routes, manage permits, and coordinate multi-modal transport.
+                    </p>
+                </div>
+                <div class="col-lg-6 offset-lg-1">
+                    <ul class="list-unstyled logistics-list m-0 p-0">
+                        <li class="reveal reveal-fade-left stagger-1 text-dark">
+                            <i class="bi bi-map-fill"></i>
+                            <div>
+                                <h5 class="fw-bold mb-0">Route Surveys & Sweeps</h5>
+                            </div>
+                        </li>
+                        <li class="reveal reveal-fade-left stagger-2 text-dark">
+                            <i class="bi bi-file-earmark-check-fill"></i>
+                            <div>
+                                <h5 class="fw-bold mb-0">Permitting & Escort Services</h5>
+                            </div>
+                        </li>
+                        <li class="reveal reveal-fade-left stagger-3 text-dark">
+                            <i class="bi bi-truck-flatbed"></i>
+                            <div>
+                                <h5 class="fw-bold mb-0">SPMT & Modular Transport</h5>
+                            </div>
+                        </li>
+                        <li class="reveal reveal-fade-left stagger-4 text-dark">
+                            <i class="bi bi-water"></i>
+                            <div>
+                                <h5 class="fw-bold mb-0">Barge & Rail Ro-Ro Operations</h5>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 pe-lg-5">
+                    <a class="navbar-brand d-flex align-items-center mb-4 text-decoration-none" href="index.html">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="height: 40px;">
+                            <path
+                                d="M10,90 L90,90 L90,80 L60,80 L60,20 L80,20 L80,10 L20,10 L20,20 L40,20 L40,80 L10,80 Z"
+                                fill="var(--secondary-color)" />
+                            <circle cx="50" cy="50" r="10" fill="var(--primary-color)" />
+                        </svg>
+                        <span class="fs-4 fw-bold ms-2" style="color: var(--text-color);">AeroLift</span>
+                    </a>
+                    <p>Premium crane hire and heavy lift logistics solutions for enterprise infrastructure, industrial,
+                        and energy projects worldwide.</p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#" class="text-white fs-5"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="text-white fs-5"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="text-white fs-5"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5>Fleet</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="#">Mobile Cranes</a></li>
+                        <li><a href="#">Crawler Cranes</a></li>
+                        <li><a href="#">Tower Cranes</a></li>
+                        <li><a href="#">Rough Terrain</a></li>
+                        <li><a href="#">Heavy Haulage</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5>Newsletter</h5>
+                    <p>Subscribe for industry insights and fleet updates.</p>
+                    <form class="d-flex gap-2 mt-3">
+                        <input type="email" class="form-control" placeholder="Email address" required>
+                        <button class="btn btn-primary" type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row footer-bottom align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <small>&copy; 2026 AeroLift. All rights reserved.</small>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <small>
+                        <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Back to Top
+                            <i class="bi bi-arrow-up"></i></a>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

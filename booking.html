@@ -1,0 +1,346 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Crane | AeroLift</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* Booking Specific Styles */
+        
+        .inner-hero {
+            padding: 10rem 0 6rem;
+            background-color: var(--primary-color);
+            color: #fff;
+            text-align: center;
+        }
+
+        /* Form Steps Reveal */
+        .step-container {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        .step-number {
+            position: absolute;
+            top: -25px;
+            left: 3rem;
+            background: var(--secondary-color);
+            color: var(--primary-color);
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            box-shadow: 0 5px 15px rgba(240, 200, 8, 0.3);
+        }
+
+        /* 3. Crane Selection Cards */
+        .crane-select-card {
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        .crane-select-card img {
+            height: 120px;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        .crane-select-input {
+            display: none;
+        }
+        .crane-select-input:checked + .crane-select-card {
+            border-color: var(--secondary-color);
+            background: var(--primary-color);
+            color: #fff;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Custom Form Controls */
+        .form-control, .form-select {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+        }
+        .form-control:focus, .form-select:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 0.25rem rgba(240, 200, 8, 0.25);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10,90 L90,90 L90,80 L60,80 L60,20 L80,20 L80,10 L20,10 L20,20 L40,20 L40,80 L10,80 Z" fill="var(--secondary-color)"/>
+                    <circle cx="50" cy="50" r="10" fill="var(--primary-color)"/>
+                </svg>
+                <span>AeroLift</span>
+            </a>
+            
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home 1</a></li>
+                    <li class="nav-item"><a class="nav-link" href="home-2.html">Home 2</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-3">
+                    <button class="theme-toggle-btn" aria-label="Toggle Theme"><i class="bi bi-moon-fill"></i></button>
+                    <button class="rtl-toggle-btn" aria-label="Toggle RTL">RTL</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. Hero Section -->
+    <section class="inner-hero reveal reveal-fade-up">
+        <div class="container">
+            <span class="text-secondary-brand fw-bold text-uppercase tracking-wide mb-2 d-inline-block">Schedule Equipment</span>
+            <h1 class="display-3 fw-bold mb-3">Book a Crane</h1>
+            <p class="lead opacity-75 mx-auto" style="max-width: 600px;">Fill out the multi-step form below to initiate your equipment reservation process.</p>
+        </div>
+    </section>
+
+    <!-- Booking Form Section -->
+    <section class="section-padding" style="margin-top: -4rem;">
+        <div class="container position-relative z-1">
+            <form action="#" method="POST" class="needs-validation" novalidate>
+                
+                <!-- 2. Inquiry Form (Step 1) -->
+                <div class="step-container reveal reveal-slide-up stagger-1">
+                    <div class="step-number">1</div>
+                    <h3 class="fw-bold mb-4 mt-2">Contact Information</h3>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <label class="form-label fw-medium">First Name</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-medium">Last Name</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-medium">Company Name</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-medium">Work Email</label>
+                            <input type="email" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-medium">Phone Number</label>
+                            <input type="tel" class="form-control" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Crane Selection Cards (Step 2) -->
+                <div class="step-container reveal reveal-slide-up stagger-2">
+                    <div class="step-number">2</div>
+                    <h3 class="fw-bold mb-4 mt-2">Select Equipment Type</h3>
+                    <div class="row g-3">
+                        <div class="col-6 col-md-3">
+                            <label class="w-100 h-100 m-0">
+                                <input type="radio" name="craneType" class="crane-select-input" value="mobile" required>
+                                <div class="crane-select-card">
+                                    <img src="images/mobile_crane_card.png" alt="Mobile">
+                                    <h6 class="fw-bold mb-0">Mobile All-Terrain</h6>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <label class="w-100 h-100 m-0">
+                                <input type="radio" name="craneType" class="crane-select-input" value="crawler">
+                                <div class="crane-select-card">
+                                    <img src="images/crawler_crane_card.png" alt="Crawler">
+                                    <h6 class="fw-bold mb-0">Heavy Crawler</h6>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <label class="w-100 h-100 m-0">
+                                <input type="radio" name="craneType" class="crane-select-input" value="tower">
+                                <div class="crane-select-card">
+                                    <img src="images/tower_crane_card.png" alt="Tower">
+                                    <h6 class="fw-bold mb-0">Tower Crane</h6>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <label class="w-100 h-100 m-0">
+                                <input type="radio" name="craneType" class="crane-select-input" value="rough">
+                                <div class="crane-select-card">
+                                    <img src="images/rough_terrain_crane_card.png" alt="Rough Terrain">
+                                    <h6 class="fw-bold mb-0">Rough Terrain</h6>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Project Requirements (Step 3) -->
+                <div class="step-container reveal reveal-slide-up stagger-3">
+                    <div class="step-number">3</div>
+                    <h3 class="fw-bold mb-4 mt-2">Project Logistics</h3>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <label class="form-label fw-medium">Required Start Date</label>
+                            <input type="date" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-medium">Estimated Duration (Days)</label>
+                            <input type="number" class="form-control" min="1" required>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label fw-medium">Job Site Address</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label fw-medium">Max Lift Weight & Radius (if known)</label>
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="planningCheck">
+                                <label class="form-check-label" for="planningCheck">
+                                    I require 3D Lift Planning / Engineering Services
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Booking CTA -->
+                <div class="text-center reveal reveal-fade-up stagger-4">
+                    <button type="submit" class="btn btn-primary btn-lg px-5 py-3 fw-bold rounded-pill">Submit Reservation Request</button>
+                    <p class="text-muted mt-3 small">A logistics coordinator will contact you within 2 business hours.</p>
+                </div>
+            </form>
+        </div>
+    </section>
+
+        <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 pe-lg-5">
+                    <a class="navbar-brand d-flex align-items-center mb-4 text-decoration-none" href="index.html">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="height: 40px;">
+                            <path d="M10,90 L90,90 L90,80 L60,80 L60,20 L80,20 L80,10 L20,10 L20,20 L40,20 L40,80 L10,80 Z" fill="var(--secondary-color)"/>
+                            <circle cx="50" cy="50" r="10" fill="var(--primary-color)"/>
+                        </svg>
+                        <span class="fs-4 fw-bold ms-2" style="color: var(--text-color);">AeroLift</span>
+                    </a>
+                    <p>Premium crane hire and heavy lift logistics solutions for enterprise infrastructure, industrial, and energy projects worldwide.</p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#" class="text-white fs-5"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="text-white fs-5"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="text-white fs-5"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5>Fleet</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="#">Mobile Cranes</a></li>
+                        <li><a href="#">Crawler Cranes</a></li>
+                        <li><a href="#">Tower Cranes</a></li>
+                        <li><a href="#">Rough Terrain</a></li>
+                        <li><a href="#">Heavy Haulage</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5>Newsletter</h5>
+                    <p>Subscribe for industry insights and fleet updates.</p>
+                    <form class="d-flex gap-2 mt-3">
+                        <input type="email" class="form-control" placeholder="Email address" required>
+                        <button class="btn btn-primary" type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row footer-bottom align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <small>&copy; 2026 AeroLift. All rights reserved.</small>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <small>
+                        <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Back to Top <i class="bi bi-arrow-up"></i></a>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script>
+        // Form Validation Bootstrap
+        (() => {
+            'use strict'
+            const forms = document.querySelectorAll('.needs-validation')
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
+    </script>
+</body>
+</html>
+
+
+
+
+
+

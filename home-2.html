@@ -1,0 +1,564 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AeroLift | Advanced Heavy Lift Solutions</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* Home 2 Specific Styles */
+
+        /* 1. Hero Zoom */
+        .hero-2 {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        .hero-bg-zoom {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/hero_bg_home2_1781934394224.png');
+            background-size: cover;
+            background-position: center;
+            animation: zoomBg 20s infinite alternate;
+            z-index: -2;
+        }
+
+        .hero-2 .dark-overlay {
+            z-index: -1;
+            background: linear-gradient(rgba(11, 28, 44, 0.7), rgba(0, 0, 0, 0.8));
+        }
+
+        @keyframes zoomBg {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(1.15);
+            }
+        }
+
+        /* 2. Horizontal Card Reveal */
+        .horizontal-scroller {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            padding: 2rem 1rem 4rem;
+            scrollbar-width: none;
+            /* Firefox */
+        }
+
+        .horizontal-scroller::-webkit-scrollbar {
+            display: none;
+            /* Chrome */
+        }
+
+        .horizontal-card {
+            width: 320px;
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            flex-shrink: 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .horizontal-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary-color);
+        }
+
+        .horizontal-card img {
+            height: 250px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .horizontal-card-body {
+            padding: 2rem;
+        }
+
+        /* 4. Timeline Animation */
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: var(--border-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3rem;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            transform: translateX(-50%);
+            box-shadow: 0 0 0 4px var(--bg-color);
+            z-index: 1;
+        }
+
+        /* 5. Hover Panels */
+        .hover-panels-container {
+            display: flex;
+            height: 500px;
+            gap: 1rem;
+        }
+
+        .hover-panel {
+            flex: 1;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: flex 0.5s ease;
+            cursor: pointer;
+        }
+
+        .hover-panel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .hover-panel-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: #fff;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            white-space: nowrap;
+        }
+
+        .hover-panel:hover {
+            flex: 3;
+        }
+
+        .hover-panel:hover img {
+            transform: scale(1.05);
+        }
+
+        .hover-panel:hover .hover-panel-content {
+            opacity: 1;
+        }
+
+        /* 6. CTA Particle Effects */
+        .cta-section {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 8rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background: var(--secondary-color);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float-up 10s infinite linear;
+        }
+
+        @keyframes float-up {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 0.3;
+            }
+
+            100% {
+                transform: translateY(-10vh) scale(1);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header (Same as Home 1) -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="height: 40px;">
+                    <path d="M10,90 L90,90 L90,80 L60,80 L60,20 L80,20 L80,10 L20,10 L20,20 L40,20 L40,80 L10,80 Z"
+                        fill="var(--secondary-color)" />
+                    <circle cx="50" cy="50" r="10" fill="var(--primary-color)" />
+                </svg>
+                <span class="ms-2">AeroLift</span>
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home 1</a></li>
+                    <li class="nav-item"><a class="nav-link" href="home-2.html">Home 2</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-3">
+                    <button class="theme-toggle-btn btn btn-link text-decoration-none p-0" aria-label="Toggle Theme"><i
+                            class="bi bi-moon-fill text-muted fs-5"></i></button>
+                    <button class="rtl-toggle-btn btn btn-link text-decoration-none text-muted fw-semibold p-0"
+                        aria-label="Toggle RTL">RTL</button>
+                    <a href="login.html" class="btn btn-outline">Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Offcanvas -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" style="background: var(--bg-color);">
+        <div class="offcanvas-header border-bottom border-secondary">
+            <h5 class="offcanvas-title fw-bold" style="color: var(--text-color);">Menu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"
+                style="filter: invert(var(--bs-btn-close-white-filter, 0));"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home 1</a></li>
+                <li class="nav-item"><a class="nav-link" href="home-2.html">Home 2</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item mt-3"><a href="login.html" class="btn btn-primary w-100">Login</a></li>
+                <li class="nav-item mt-3 d-flex gap-2">
+                    <button class="theme-toggle-btn btn btn-outline w-50"><i class="bi bi-moon-fill"></i> Theme</button>
+                    <button class="rtl-toggle-btn btn btn-outline w-50">RTL</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 1. Hero Section -->
+    <section class="hero-2">
+        <div class="hero-bg-zoom"></div>
+        <div class="dark-overlay"></div>
+        <div class="container position-relative z-1 reveal reveal-zoom">
+            <h1 class="display-2 fw-bold mb-4">Elevating Industrial Standards</h1>
+            <p class="lead fs-3 mb-5 mx-auto" style="max-width: 800px; color: rgba(255,255,255,0.8);">Unmatched heavy
+                lift capacity meets meticulous logistics planning for the most critical global projects.</p>
+            <div class="d-flex justify-content-center gap-4 flex-wrap">
+                <a href="contact.html" class="btn btn-primary btn-lg rounded-pill px-5">Discuss Your Project</a>
+                <a href="services.html" class="btn btn-outline-light btn-lg rounded-pill px-5">Explore Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Fleet Overview -->
+    <section class="section-padding overflow-hidden">
+        <div class="container-fluid px-0">
+            <div class="container mb-5 reveal reveal-fade-up">
+                <span class="text-secondary-brand fw-semibold text-uppercase">The Arsenal</span>
+                <h2 class="fw-bold mt-2">Specialized Lifting Fleet</h2>
+            </div>
+            <!-- Horizontal Scroll Reveal -->
+            <div class="horizontal-scroller reveal reveal-fade-left">
+                <!-- Using one image generated for this, and reusing others from Home 1 for layout demonstration -->
+                <div class="horizontal-card">
+                    <img src="https://images.pexels.com/photos/906484/pexels-photo-906484.jpeg" alt="Heavy Fleet">
+                    <div class="horizontal-card-body">
+                        <h4 class="fw-bold">Heavy Logistics Units</h4>
+                        <p class="text-muted">Specialized modular trailers and self-propelled modular transporters
+                            (SPMTs).</p>
+                    </div>
+                </div>
+                <div class="horizontal-card">
+                    <img src="https://images.pexels.com/photos/6635671/pexels-photo-6635671.jpeg" alt="Tower Fleet">
+                    <div class="horizontal-card-body">
+                        <h4 class="fw-bold">High-Capacity Towers</h4>
+                        <p class="text-muted">Freestanding and tied-in configurations for mega-structures.</p>
+                    </div>
+                </div>
+                <div class="horizontal-card">
+                    <img src="https://images.pexels.com/photos/29491531/pexels-photo-29491531.jpeg" alt="Crawler Fleet">
+                    <div class="horizontal-card-body">
+                        <h4 class="fw-bold">Super Heavy Crawlers</h4>
+                        <p class="text-muted">Class-leading ground bearing capacities up to 3000T.</p>
+                    </div>
+                </div>
+                <div class="horizontal-card">
+                    <img src="https://images.pexels.com/photos/38191988/pexels-photo-38191988.jpeg" alt="Mobile Fleet">
+                    <div class="horizontal-card-body">
+                        <h4 class="fw-bold">All-Terrain Mobile</h4>
+                        <p class="text-muted">Rapid deployment units with exceptional roading capabilities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Heavy Lift Solutions -->
+    <section class="section-padding bg-surface-color">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0 reveal reveal-fade-right">
+                    <img src="https://images.pexels.com/photos/34155472/pexels-photo-34155472.jpeg"
+                        alt="Heavy Lift Solutions" class="img-fluid rounded-4 shadow-lg">
+                </div>
+                <div class="col-lg-5 offset-lg-1 reveal reveal-fade-left">
+                    <span class="text-secondary-brand fw-semibold text-uppercase">Engineering First</span>
+                    <h2 class="fw-bold mt-2 mb-4">Complex Lift Operations</h2>
+                    <p class="text-muted mb-4">Our solutions begin long before the crane arrives on site. We provide
+                        comprehensive engineered lift plans, custom rigging fabrication, and route surveys.</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-3 d-flex align-items-center gap-3">
+                            <i class="bi bi-gear-fill text-primary-brand fs-4"></i>
+                            <span class="fs-5 fw-medium">3D Simulation & Modeling</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center gap-3">
+                            <i class="bi bi-diagram-3-fill text-primary-brand fs-4"></i>
+                            <span class="fs-5 fw-medium">Custom Spreader Bar Design</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center gap-3">
+                            <i class="bi bi-clipboard-data-fill text-primary-brand fs-4"></i>
+                            <span class="fs-5 fw-medium">Ground Bearing Pressure Analysis</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Safety & Compliance -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 mb-5 mb-lg-0 reveal reveal-fade-up">
+                    <h2 class="fw-bold mb-4">Uncompromising Safety Standards</h2>
+                    <p class="text-muted mb-4">We maintain the highest certifications in the industry. Safety dictates
+                        every decision we make on and off the field.</p>
+                    <img src="images/safety_compliance_home2_1781934440417.png" alt="Safety Inspector"
+                        class="img-fluid rounded-4 shadow">
+                </div>
+                <div class="col-lg-6 offset-lg-1 reveal reveal-slide-up">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <h4 class="fw-bold">Pre-Lift Protocol</h4>
+                            <p class="text-muted">Rigorous site inspections, daily equipment checks, and mandatory Job
+                                Safety Analysis (JSA) briefings.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4 class="fw-bold">Operator Certification</h4>
+                            <p class="text-muted">100% NCCCO certified operators with minimum 10,000 hours of seat time
+                                required for heavy lift assignments.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4 class="fw-bold">Equipment Maintenance</h4>
+                            <p class="text-muted">Proprietary preventative maintenance scheduling that exceeds OEM
+                                requirements.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4 class="fw-bold">Zero-Incident Culture</h4>
+                            <p class="text-muted">Continuous safety training, stop-work authority for all personnel, and
+                                transparent reporting.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Industries Served -->
+    <section class="section-padding bg-surface-color">
+        <div class="container">
+            <div class="text-center mb-5 reveal reveal-fade-up">
+                <span class="text-secondary-brand fw-semibold text-uppercase">Sectors</span>
+                <h2 class="fw-bold mt-2">Serving Vital Industries</h2>
+            </div>
+
+            <div class="hover-panels-container reveal reveal-zoom">
+                <div class="hover-panel">
+                    <img src="images/industries_served_home2_1781934453602.png" alt="Wind Energy">
+                    <div class="hover-panel-content">
+                        <h3 class="fw-bold mb-0">Renewable Energy</h3>
+                        <p class="d-none d-md-block mb-0 text-white-50 mt-2">Turbine erection and maintenance logistics.
+                        </p>
+                    </div>
+                </div>
+                <div class="hover-panel">
+                    <img src="https://images.pexels.com/photos/5504388/pexels-photo-5504388.jpeg"
+                        alt="Industrial Construction">
+                    <div class="hover-panel-content">
+                        <h3 class="fw-bold mb-0">Industrial Construction</h3>
+                        <p class="d-none d-md-block mb-0 text-white-50 mt-2">Refineries, plants, and manufacturing
+                            facilities.</p>
+                    </div>
+                </div>
+                <div class="hover-panel">
+                    <img src="https://images.pexels.com/photos/17909242/pexels-photo-17909242.jpeg"
+                        alt="Infrastructure">
+                    <div class="hover-panel-content">
+                        <h3 class="fw-bold mb-0">Civil Infrastructure</h3>
+                        <p class="d-none d-md-block mb-0 text-white-50 mt-2">Bridges, stadiums, and highway overpasses.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. CTA Section (Particle Effects) -->
+    <section class="cta-section text-center">
+        <!-- Particles generated via JS -->
+        <div id="particles-container"></div>
+
+        <div class="container position-relative z-1 reveal reveal-slide-up">
+            <h2 class="display-4 fw-bold mb-4">Ready to Elevate Your Next Project?</h2>
+            <p class="lead mb-5 mx-auto" style="max-width: 600px;">Contact our engineering team to discuss feasibility,
+                lift planning, and logistics coordination.</p>
+            <a href="booking.html" class="btn btn-light btn-lg text-primary-brand fw-bold px-5 py-3 rounded-pill">Start
+                Planning Today</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 pe-lg-5">
+                    <a class="navbar-brand d-flex align-items-center mb-4 text-decoration-none" href="index.html">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="height: 40px;">
+                            <path
+                                d="M10,90 L90,90 L90,80 L60,80 L60,20 L80,20 L80,10 L20,10 L20,20 L40,20 L40,80 L10,80 Z"
+                                fill="var(--secondary-color)" />
+                            <circle cx="50" cy="50" r="10" fill="var(--primary-color)" />
+                        </svg>
+                        <span class="fs-4 fw-bold ms-2" style="color: var(--text-color);">AeroLift</span>
+                    </a>
+                    <p>Premium crane hire and heavy lift logistics solutions for enterprise infrastructure, industrial,
+                        and energy projects worldwide.</p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#" class="text-white fs-5"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="text-white fs-5"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="text-white fs-5"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5>Fleet</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="#">Mobile Cranes</a></li>
+                        <li><a href="#">Crawler Cranes</a></li>
+                        <li><a href="#">Tower Cranes</a></li>
+                        <li><a href="#">Rough Terrain</a></li>
+                        <li><a href="#">Heavy Haulage</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5>Newsletter</h5>
+                    <p>Subscribe for industry insights and fleet updates.</p>
+                    <form class="d-flex gap-2 mt-3">
+                        <input type="email" class="form-control" placeholder="Email address" required>
+                        <button class="btn btn-primary" type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row footer-bottom align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <small>&copy; 2026 AeroLift. All rights reserved.</small>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <small>
+                        <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Back to Top
+                            <i class="bi bi-arrow-up"></i></a>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script>
+        // Particle Effect Generator for Home 2 CTA
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('particles-container');
+            if (container) {
+                for (let i = 0; i < 30; i++) {
+                    let particle = document.createElement('div');
+                    particle.classList.add('particle');
+
+                    // Randomize size, position, and animation delay
+                    let size = Math.random() * 20 + 5 + 'px';
+                    particle.style.width = size;
+                    particle.style.height = size;
+                    particle.style.left = Math.random() * 100 + 'vw';
+                    particle.style.animationDuration = Math.random() * 5 + 5 + 's';
+                    particle.style.animationDelay = Math.random() * 5 + 's';
+
+                    container.appendChild(particle);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
