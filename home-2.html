@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="light">
 
 <head>
@@ -103,6 +103,17 @@
             padding: 2rem;
         }
 
+        @media (max-width: 768px) {
+            .horizontal-scroller {
+                flex-direction: column;
+                overflow-x: hidden;
+                padding: 1rem 1rem 2rem;
+            }
+            .horizontal-card {
+                width: 100%;
+            }
+        }
+
         /* 4. Timeline Animation */
         .timeline {
             position: relative;
@@ -186,6 +197,18 @@
             opacity: 1;
         }
 
+        @media (max-width: 768px) {
+            .hover-panels-container {
+                flex-direction: column;
+                height: 600px; /* Stack them vertically */
+            }
+            .hover-panel-content {
+                white-space: normal; /* Allow text wrapping */
+                opacity: 1; /* Always visible on mobile where hover is hard */
+                padding: 1rem;
+            }
+        }
+
         /* 6. CTA Particle Effects */
         .cta-section {
             background-color: var(--primary-color);
@@ -219,6 +242,8 @@
             }
         }
     </style>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
 </head>
 
 <body>

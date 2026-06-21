@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="light">
 
 <head>
@@ -87,6 +87,8 @@
             border: 1px solid var(--border-color);
             transition: all 0.4s ease;
             height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .blog-card img {
@@ -98,6 +100,9 @@
 
         .blog-card-body {
             padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .blog-card:hover {
@@ -143,7 +148,14 @@
             opacity: 0.2;
             z-index: 0;
         }
+
+        /* Bypass external CSS cache for dark theme text visibility */
+        [data-theme="dark"] .text-body,
+        [data-theme="dark"] .text-dark {
+            color: #f1f1f1 !important;
+        }
     </style>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
 </head>
 
 <body>
@@ -184,11 +196,28 @@
         </div>
     </nav>
 
-    <!-- Mobile Offcanvas (Simplified) -->
+    <!-- Mobile Offcanvas -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" style="background: var(--bg-color);">
         <div class="offcanvas-header border-bottom border-secondary">
             <h5 class="offcanvas-title fw-bold" style="color: var(--text-color);">Menu</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"
+                style="filter: invert(var(--bs-btn-close-white-filter, 0));"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home 1</a></li>
+                <li class="nav-item"><a class="nav-link" href="home-2.html">Home 2</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item mt-3"><a href="login.html" class="btn btn-primary w-100">Login</a></li>
+                <li class="nav-item mt-3 d-flex gap-2">
+                    <button class="theme-toggle-btn btn btn-outline w-50"><i class="bi bi-moon-fill"></i> Theme</button>
+                    <button class="rtl-toggle-btn btn btn-outline w-50">RTL</button>
+                </li>
+            </ul>
         </div>
     </div>
 
@@ -291,7 +320,7 @@
                                     class="text-decoration-none text-body">Maximizing Ground Bearing Capacity</a></h4>
                             <p class="text-muted mb-4">Understanding soil mechanics and proper matting techniques for
                                 heavy crawler setups.</p>
-                            <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
                                 <small class="text-muted fw-medium">By Marcus Thorne</small>
                                 <a href="blog-details.html" class="text-secondary-brand"><i
                                         class="bi bi-arrow-right-circle fs-4"></i></a>
@@ -310,7 +339,7 @@
                                     class="text-decoration-none text-body">Navigating Interstate Permitting</a></h4>
                             <p class="text-muted mb-4">A comprehensive guide to routing oversized cargo across multiple
                                 state lines.</p>
-                            <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
                                 <small class="text-muted fw-medium">By Elena Rostova</small>
                                 <a href="blog-details.html" class="text-secondary-brand"><i
                                         class="bi bi-arrow-right-circle fs-4"></i></a>
@@ -329,7 +358,7 @@
                                     class="text-decoration-none text-body">AeroLift Expands European Operations</a></h4>
                             <p class="text-muted mb-4">Opening our new logistics hub in Rotterdam to support offshore
                                 wind projects.</p>
-                            <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
                                 <small class="text-muted fw-medium">By Robert Vance</small>
                                 <a href="blog-details.html" class="text-secondary-brand"><i
                                         class="bi bi-arrow-right-circle fs-4"></i></a>

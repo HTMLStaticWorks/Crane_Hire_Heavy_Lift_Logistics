@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
@@ -28,7 +28,7 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            padding: 2rem 0; /* Add padding for long signup form on mobile */
+            padding: 5rem 1.5rem 2rem; /* Add padding for long signup form on mobile */
         }
         .auth-overlay {
             position: absolute;
@@ -69,6 +69,9 @@
         .auth-card .form-control::placeholder {
             color: rgba(255, 255, 255, 0.5);
         }
+        .auth-card input[type="password"], .auth-card input[type="text"][id*="passwordInput"] {
+            padding-inline-end: 40px;
+        }
         .auth-card .form-control:focus {
             background: rgba(255, 255, 255, 0.2);
             border-color: var(--secondary-color);
@@ -92,7 +95,7 @@
         }
         .btn-toggle-password {
             position: absolute;
-            right: 10px;
+            inset-inline-end: 10px;
             top: 50%;
             transform: translateY(-50%);
             background: none;
@@ -107,8 +110,8 @@
         /* Auth Toggles */
         .auth-toggles {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 1.5rem;
+            right: 1.5rem;
             z-index: 2;
             display: flex;
             gap: 10px;
@@ -124,6 +127,7 @@
             justify-content: center;
         }
     </style>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
 </head>
 <body class="auth-body">
 
@@ -160,7 +164,7 @@
             <div class="mb-3">
                 <label class="form-label">Password</label>
                 <div class="position-relative">
-                    <input type="password" class="form-control" id="passwordInput" placeholder="••••••••" required>
+                    <input type="password" class="form-control" id="passwordInput" placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢" required>
                     <button type="button" class="btn-toggle-password" id="togglePasswordBtn">
                         <i class="bi bi-eye"></i>
                     </button>
@@ -170,7 +174,7 @@
             <div class="mb-4">
                 <label class="form-label">Confirm Password</label>
                 <div class="position-relative">
-                    <input type="password" class="form-control" id="confirmPasswordInput" placeholder="••••••••" required>
+                    <input type="password" class="form-control" id="confirmPasswordInput" placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢" required>
                     <button type="button" class="btn-toggle-password" id="toggleConfirmPasswordBtn">
                         <i class="bi bi-eye"></i>
                     </button>

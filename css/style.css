@@ -30,17 +30,33 @@
   
   /* Map Bootstrap text utilities to dark theme colors */
   --bs-body-color: #f1f1f1;
+  --bs-body-color-rgb: 241, 241, 241;
   --bs-secondary-color: #aaaaaa;
-  
+
   --glass-bg: rgba(18, 18, 18, 0.8);
   --glass-border: rgba(255, 255, 255, 0.05);
   --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .text-body,
+[data-theme="dark"] .text-dark {
+  color: var(--bs-body-color) !important;
+}
+
+/* Fix hamburger menu in dark mode */
+[data-theme="dark"] .navbar-toggler-icon {
+  filter: invert(1);
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -52,6 +68,7 @@ body {
   font-weight: 400;
   transition: background-color var(--transition-speed), color var(--transition-speed);
   overflow-x: hidden;
+  width: 100%;
 }
 
 /* Typography Rules (STRICT) */
@@ -77,10 +94,10 @@ a:hover {
   color: var(--secondary-color);
 }
 
-[data-theme="dark"] a {
+[data-theme="dark"] a:not(.btn) {
   color: #fff;
 }
-[data-theme="dark"] a:hover {
+[data-theme="dark"] a:not(.btn):hover {
   color: var(--secondary-color);
 }
 
@@ -156,6 +173,10 @@ a:hover {
 .text-secondary-brand { color: var(--secondary-color); }
 .bg-primary-brand { background-color: var(--primary-color); color: #fff;}
 .bg-secondary-brand { background-color: var(--secondary-color); color: #fff;}
+
+[data-theme="dark"] .text-primary-brand:not(.bg-secondary-brand):not(.btn-light) {
+    color: var(--bs-body-color) !important;
+}
 
 /* Footer */
 footer {
