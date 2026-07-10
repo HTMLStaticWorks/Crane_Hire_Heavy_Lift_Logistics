@@ -72,10 +72,10 @@ body {
 }
 
 /* Typography Rules (STRICT) */
-h1, .h1 { font-size: clamp(3rem, 5vw, 4.5rem) !important; font-weight: 580 !important; line-height: 1.1; }
-h2, .h2 { font-size: clamp(2.5rem, 4vw, 3.5rem) !important; font-weight: 540 !important; line-height: 1.2; }
-h3, .h3 { font-size: clamp(1.75rem, 2.5vw, 2.25rem) !important; font-weight: 520 !important; line-height: 1.3; }
-h4, .h4, h5, .h5, h6, .h6 { font-size: clamp(1.25rem, 1.5vw, 1.5rem) !important; font-weight: 500 !important; line-height: 1.4; }
+h1, .h1 { font-size: clamp(2.5rem, 4vw, 3.5rem) !important; font-weight: 580 !important; line-height: 1.1; }
+h2, .h2 { font-size: clamp(2rem, 3vw, 2.75rem) !important; font-weight: 540 !important; line-height: 1.2; }
+h3, .h3 { font-size: clamp(1.5rem, 2vw, 2rem) !important; font-weight: 520 !important; line-height: 1.3; }
+h4, .h4, h5, .h5, h6, .h6 { font-size: clamp(1.1rem, 1.3vw, 1.3rem) !important; font-weight: 500 !important; line-height: 1.4; }
 
 p, li, body { font-size: clamp(0.9rem, 1vw, 1.05rem) !important; font-weight: 400 !important; }
 .lead, .subheading, .text-muted { font-size: clamp(1.05rem, 1.2vw, 1.15rem) !important; font-weight: 500 !important; }
@@ -176,6 +176,12 @@ a:hover {
 
 [data-theme="dark"] .text-primary-brand:not(.bg-secondary-brand):not(.btn-light) {
     color: var(--bs-body-color) !important;
+}
+
+[data-theme="dark"] .glass-card .bg-primary-brand,
+[data-theme="dark"] .floating-card .bg-primary-brand {
+    background-color: #333333;
+    border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 /* Footer */
